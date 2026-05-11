@@ -1,255 +1,1205 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>StoryMag — Magazine Premium</title>
 
-  <title>StoryMag — Vos souvenirs en magazine premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <meta name="description"
-    content="StoryMag transforme vos souvenirs, photos et émotions en magazines haut de gamme personnalisés." />
+<style>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+:root{
+  --bg:#f6f2eb;
+  --cream:#f8f5f1;
+  --black:#111111;
+  --gold:#c8a96b;
+  --text:#3d3d3d;
+  --border:rgba(0,0,0,0.08);
+  --white:#ffffff;
+}
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap"
-    rel="stylesheet">
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles.css">
+html{
+  scroll-behavior:smooth;
+}
 
-  <!-- Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--black);
+  overflow-x:hidden;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  backdrop-filter:blur(20px);
+  background:rgba(255,255,255,0.7);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:20px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.nav-links{
+  display:flex;
+  gap:40px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:var(--black);
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+.nav-btn{
+  background:var(--black);
+  color:white;
+  border:none;
+  padding:15px 28px;
+  border-radius:40px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:140px 40px 80px;
+}
+
+.hero-grid{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+
+.hero-sub{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:5px;
+  font-size:12px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:88px;
+  line-height:0.95;
+  font-weight:700;
+}
+
+.hero p{
+  margin-top:35px;
+  color:var(--text);
+  line-height:1.8;
+  font-size:19px;
+  max-width:580px;
+}
+
+.hero-buttons{
+  margin-top:45px;
+  display:flex;
+  gap:20px;
+}
+
+.btn-primary{
+  background:var(--black);
+  color:white;
+  padding:18px 34px;
+  border-radius:50px;
+  border:none;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:600;
+}
+
+.btn-secondary{
+  background:transparent;
+  border:1px solid var(--black);
+  padding:18px 34px;
+  border-radius:50px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.hero-image{
+  position:relative;
+}
+
+.hero-image img{
+  width:100%;
+  border-radius:40px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.15);
+}
+
+.hero-card{
+  position:absolute;
+  bottom:-40px;
+  left:-40px;
+  background:white;
+  padding:30px;
+  border-radius:30px;
+  width:260px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.hero-card p:first-child{
+  font-size:12px;
+  text-transform:uppercase;
+  color:var(--gold);
+  letter-spacing:2px;
+}
+
+.hero-card p:last-child{
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;
+  line-height:1.1;
+  margin-top:10px;
+}
+
+/* =========================
+SECTION
+========================= */
+
+.section{
+  padding:140px 40px;
+}
+
+.section.white{
+  background:white;
+}
+
+.container{
+  max-width:1400px;
+  margin:auto;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:80px;
+}
+
+.section-title p{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:12px;
+}
+
+.section-title h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:72px;
+  margin-top:20px;
+}
+
+/* =========================
+TIMELINE
+========================= */
+
+.timeline{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:30px;
+  margin-top:100px;
+}
+
+.timeline-item{
+  text-align:center;
+}
+
+.timeline-circle{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:var(--black);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:auto;
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;
+}
+
+.timeline-item h3{
+  margin-top:30px;
+  font-size:20px;
+}
+
+/* =========================
+MAGAZINES
+========================= */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+}
+
+.card{
+  background:white;
+  border-radius:40px;
+  overflow:hidden;
+  transition:0.4s;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.card:hover{
+  transform:translateY(-12px);
+}
+
+.card img{
+  width:100%;
+  height:430px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:40px;
+}
+
+.card-content h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px;
+}
+
+.card-content p{
+  margin-top:18px;
+  color:var(--text);
+  line-height:1.7;
+}
+
+.card-content button{
+  margin-top:30px;
+  background:none;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* =========================
+PREMIUM
+========================= */
+
+.premium{
+  background:#111;
+  color:white;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+}
+
+.feature{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:40px;
+  padding:50px;
+}
+
+.feature-icon{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:white;
+  color:black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+}
+
+.feature h3{
+  margin-top:30px;
+  font-size:34px;
+  font-family:'Cormorant Garamond',serif;
+}
+
+.feature p{
+  margin-top:18px;
+  color:rgba(255,255,255,0.7);
+  line-height:1.7;
+}
+
+/* =========================
+FORM
+========================= */
+
+.form-box{
+  background:white;
+  border-radius:50px;
+  padding:70px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.08);
+}
+
+.progress{
+  width:100%;
+  height:8px;
+  background:#ececec;
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:50px;
+}
+
+.progress-bar{
+  width:30%;
+  height:100%;
+  background:black;
+}
+
+.form-box h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:58px;
+}
+
+.inputs{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.inputs input,
+.inputs textarea,
+.inputs select{
+  width:100%;
+  border:1px solid #ddd;
+  padding:22px;
+  border-radius:24px;
+  font-size:16px;
+  font-family:'Inter';
+}
+
+.inputs textarea{
+  min-height:180px;
+  resize:none;
+}
+
+.full{
+  grid-column:1/3;
+}
+
+.upload{
+  border:2px dashed #ccc;
+  border-radius:30px;
+  padding:70px;
+  text-align:center;
+}
+
+.upload h4{
+  font-size:28px;
+  margin-top:20px;
+}
+
+.upload p{
+  color:#666;
+  margin-top:10px;
+}
+
+.form-buttons{
+  display:flex;
+  justify-content:space-between;
+  margin-top:50px;
+}
+
+/* =========================
+PACKAGING
+========================= */
+
+.packaging-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+
+.packaging-grid img{
+  width:100%;
+  border-radius:40px;
+}
+
+.packaging-grid h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:74px;
+}
+
+.packaging-grid p{
+  margin-top:30px;
+  color:var(--text);
+  line-height:1.8;
+  font-size:18px;
+}
+
+/* =========================
+TESTIMONIALS
+========================= */
+
+.testimonials{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+}
+
+.testimonial{
+  background:white;
+  padding:50px;
+  border-radius:40px;
+}
+
+.testimonial p{
+  font-size:22px;
+  line-height:1.8;
+}
+
+.testimonial span{
+  display:block;
+  margin-top:40px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:#777;
+  font-size:12px;
+}
+
+/* =========================
+FAQ
+========================= */
+
+.faq{
+  background:black;
+  color:white;
+}
+
+.faq-item{
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  padding:35px 0;
+}
+
+.faq-item h3{
+  font-size:30px;
+  font-family:'Cormorant Garamond',serif;
+}
+
+.faq-item p{
+  margin-top:20px;
+  color:rgba(255,255,255,0.7);
+  line-height:1.8;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.footer{
+  background:#111;
+  color:white;
+  padding:100px 40px;
+}
+
+.footer-grid{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:60px;
+}
+
+.footer h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px;
+}
+
+.footer p{
+  color:rgba(255,255,255,0.7);
+  margin-top:20px;
+  line-height:1.8;
+}
+
+.footer ul{
+  list-style:none;
+}
+
+.footer ul li{
+  margin-bottom:16px;
+  color:rgba(255,255,255,0.7);
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+.hero-grid,
+.packaging-grid,
+.cards,
+.features,
+.testimonials,
+.footer-grid,
+.timeline{
+  grid-template-columns:1fr;
+}
+
+.hero h1{
+  font-size:58px;
+}
+
+.section-title h2{
+  font-size:52px;
+}
+
+.inputs{
+  grid-template-columns:1fr;
+}
+
+.full{
+  grid-column:auto;
+}
+
+.nav-links{
+  display:none;
+}
+
+.hero-card{
+  position:relative;
+  bottom:auto;
+  left:auto;
+  margin-top:20px;
+  width:100%;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="container header-inner">
+<!-- NAVBAR -->
 
-      <a href="#" class="logo">StoryMag</a>
+<div class="navbar">
 
-      <nav class="nav">
-        <a href="#concept">Concept</a>
-        <a href="#types">Magazines</a>
-        <a href="#formulaire">Créer</a>
-        <a href="#faq">FAQ</a>
-      </nav>
+  <div class="nav-inner">
 
+    <div class="logo">
+      StoryMag
     </div>
-  </header>
 
-  <!-- HERO -->
-  <section class="hero">
+    <div class="nav-links">
+      <a href="#">Concept</a>
+      <a href="#">Magazines</a>
+      <a href="#">Créer</a>
+      <a href="#">FAQ</a>
+    </div>
 
-    <div class="hero-overlay"></div>
+    <button class="nav-btn">
+      Créer mon magazine
+    </button>
 
-    <div class="hero-content">
+  </div>
 
-      <span class="hero-badge">
-        Magazine personnalisé haut de gamme
-      </span>
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-grid">
+
+    <div>
+
+      <div class="hero-sub">
+        StoryMag Premium
+      </div>
 
       <h1>
         Vos souvenirs méritent mieux qu’une galerie photo.
       </h1>
 
       <p>
-        StoryMag transforme vos photos, émotions et anecdotes
-        en véritables magazines premium imprimés.
+        StoryMag transforme vos photos, anecdotes et émotions
+        en véritables magazines personnalisés haut de gamme.
       </p>
 
       <div class="hero-buttons">
-        <a href="#formulaire" class="btn btn-black">
+
+        <button class="btn-primary">
           Créer mon magazine
-        </a>
-
-        <a href="#concept" class="btn btn-light">
-          Découvrir le concept
-        </a>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CONCEPT -->
-  <section class="section fade-in" id="concept">
-
-    <div class="container">
-
-      <div class="section-heading">
-        <span class="section-tag">Concept</span>
-        <h2>Une histoire éditoriale unique.</h2>
-      </div>
-
-      <p class="section-text">
-        StoryMag crée des magazines émotionnels premium à partir
-        de vos souvenirs, histoires et photos les plus précieuses.
-      </p>
-
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <span>01</span>
-          <h3>Vous racontez</h3>
-        </div>
-
-        <div class="timeline-item">
-          <span>02</span>
-          <h3>Nous concevons</h3>
-        </div>
-
-        <div class="timeline-item">
-          <span>03</span>
-          <h3>Vous validez</h3>
-        </div>
-
-        <div class="timeline-item">
-          <span>04</span>
-          <h3>Nous imprimons</h3>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- MAGAZINES -->
-  <section class="section magazines fade-in" id="types">
-
-    <div class="container">
-
-      <div class="section-heading">
-        <span class="section-tag">Collections</span>
-        <h2>Des magazines pour chaque histoire.</h2>
-      </div>
-
-      <div class="cards">
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
-            alt="Magazine anniversaire">
-
-          <div class="card-content">
-            <h3>Anniversaire</h3>
-            <p>Un cadeau émotionnel inoubliable.</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"
-            alt="Magazine couple">
-
-          <div class="card-content">
-            <h3>Couple</h3>
-            <p>Votre histoire racontée comme un vrai magazine.</p>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552"
-            alt="Magazine mariage">
-
-          <div class="card-content">
-            <h3>Mariage</h3>
-            <p>Revivez votre journée la plus précieuse.</p>
-          </div>
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- POURQUOI -->
-  <section class="section dark fade-in">
-
-    <div class="container">
-
-      <div class="section-heading center">
-        <span class="section-tag light">Pourquoi StoryMag</span>
-        <h2>Une expérience premium.</h2>
-      </div>
-
-      <div class="benefits">
-
-        <div class="benefit">
-          <i data-feather="star"></i>
-          <p>100% personnalisé</p>
-        </div>
-
-        <div class="benefit">
-          <i data-feather="award"></i>
-          <p>Qualité premium</p>
-        </div>
-
-        <div class="benefit">
-          <i data-feather="heart"></i>
-          <p>Émotion garantie</p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FORM -->
-  <section class="section fade-in" id="formulaire">
-
-    <div class="container">
-
-      <div class="section-heading">
-        <span class="section-tag">Créer</span>
-        <h2>Commencez votre StoryMag.</h2>
-      </div>
-
-      <form class="form">
-
-        <input type="text" placeholder="Prénom" required>
-        <input type="text" placeholder="Nom" required>
-        <input type="email" placeholder="Email" required>
-
-        <textarea placeholder="Racontez votre histoire..."></textarea>
-
-        <button type="submit" class="btn btn-black">
-          Envoyer ma demande
         </button>
 
-      </form>
+        <button class="btn-secondary">
+          Découvrir le concept
+        </button>
+
+      </div>
 
     </div>
 
-  </section>
+    <div class="hero-image">
 
-  <!-- FOOTER -->
-  <footer class="footer">
+      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200">
 
-    <div class="container">
+      <div class="hero-card">
+        <p>Objet collector</p>
+        <p>Magazine personnalisé premium</p>
+      </div>
 
-      <h3>StoryMag</h3>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONCEPT -->
+
+<section class="section white">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <p>Le concept</p>
+
+      <h2>
+        Chaque histoire mérite son propre magazine.
+      </h2>
+
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-circle">1</div>
+        <h3>Vous racontez</h3>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-circle">2</div>
+        <h3>Nous créons</h3>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-circle">3</div>
+        <h3>Vous validez</h3>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-circle">4</div>
+        <h3>Nous imprimons</h3>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-circle">5</div>
+        <h3>Vous recevez</h3>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- MAGAZINES -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <p>Collections</p>
+
+      <h2>
+        Des magazines créés pour les émotions.
+      </h2>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <img src="https://picsum.photos/700/900?1">
+
+        <div class="card-content">
+
+          <h3>Magazine Couple</h3>
+
+          <p>
+            Une histoire d’amour transformée en expérience éditoriale premium.
+          </p>
+
+          <button>
+            Créer ce magazine →
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <img src="https://picsum.photos/700/900?2">
+
+        <div class="card-content">
+
+          <h3>Magazine Mariage</h3>
+
+          <p>
+            Immortalisez les émotions du plus beau jour de votre vie.
+          </p>
+
+          <button>
+            Créer ce magazine →
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <img src="https://picsum.photos/700/900?3">
+
+        <div class="card-content">
+
+          <h3>Magazine Famille</h3>
+
+          <p>
+            Créez un souvenir intemporel à transmettre aux générations futures.
+          </p>
+
+          <button>
+            Créer ce magazine →
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PREMIUM -->
+
+<section class="section premium">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <p>Pourquoi StoryMag</p>
+
+      <h2>
+        Une expérience premium de bout en bout.
+      </h2>
+
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          ✦
+        </div>
+
+        <h3>
+          100% personnalisé
+        </h3>
+
+        <p>
+          Chaque magazine est entièrement conçu autour de votre histoire.
+        </p>
+
+      </div>
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          ✦
+        </div>
+
+        <h3>
+          Packaging luxe
+        </h3>
+
+        <p>
+          Boîte tiroir premium, papier haut de gamme et finition collector.
+        </p>
+
+      </div>
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          ✦
+        </div>
+
+        <h3>
+          Design éditorial
+        </h3>
+
+        <p>
+          Une direction artistique inspirée des plus grands magazines lifestyle.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FORM -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <p>Créer</p>
+
+      <h2>
+        Créons votre histoire.
+      </h2>
+
+    </div>
+
+    <div class="form-box">
+
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+
+      <h3>
+        Vos coordonnées
+      </h3>
+
+      <div class="inputs">
+
+        <input type="text" placeholder="Prénom">
+        <input type="text" placeholder="Nom">
+
+        <input type="email" placeholder="Email">
+        <input type="tel" placeholder="Téléphone">
+
+        <textarea class="full" placeholder="Parlez-nous de cette personne..."></textarea>
+
+        <div class="upload full">
+
+          <div style="font-size:50px;">
+            ⬆
+          </div>
+
+          <h4>
+            Glissez vos souvenirs ici
+          </h4>
+
+          <p>
+            Photos, vidéos et messages audio
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="form-buttons">
+
+        <button class="btn-secondary">
+          Retour
+        </button>
+
+        <button class="btn-primary">
+          Continuer
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PACKAGING -->
+
+<section class="section white">
+
+  <div class="container">
+
+    <div class="packaging-grid">
+
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200">
+
+      <div>
+
+        <p style="color:var(--gold);text-transform:uppercase;letter-spacing:4px;font-size:12px;">
+          Packaging Premium
+        </p>
+
+        <h2>
+          Un objet collector pensé comme une œuvre.
+        </h2>
+
+        <p>
+          Boîte tiroir luxe, papier premium, finitions élégantes,
+          expérience d’ouverture émotionnelle et qualité éditoriale exceptionnelle.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <p>Témoignages</p>
+
+      <h2>
+        Des émotions réelles.
+      </h2>
+
+    </div>
+
+    <div class="testimonials">
+
+      <div class="testimonial">
+
+        <p>
+          “Le plus beau cadeau d’anniversaire que nous ayons offert.”
+        </p>
+
+        <span>
+          Client StoryMag
+        </span>
+
+      </div>
+
+      <div class="testimonial">
+
+        <p>
+          “Une émotion incroyable en découvrant le magazine.”
+        </p>
+
+        <span>
+          Client StoryMag
+        </span>
+
+      </div>
+
+      <div class="testimonial">
+
+        <p>
+          “Un rendu digne d’un vrai magazine de luxe.”
+        </p>
+
+        <span>
+          Client StoryMag
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="section faq">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <p>FAQ</p>
+
+      <h2>
+        Questions fréquentes
+      </h2>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>
+        Quels sont les délais ?
+      </h3>
 
       <p>
-        Magazine personnalisé haut de gamme.
+        Les créations prennent généralement entre 7 et 14 jours.
       </p>
-
-      <small>
-        © 2026 StoryMag — Tous droits réservés
-      </small>
 
     </div>
 
-  </footer>
+    <div class="faq-item">
 
-  <script src="script.js"></script>
+      <h3>
+        Puis-je modifier avant impression ?
+      </h3>
+
+      <p>
+        Oui, une validation finale est toujours envoyée avant impression.
+      </p>
+
+    </div>
+
+    <div class="faq-item">
+
+      <h3>
+        Mes données sont-elles sécurisées ?
+      </h3>
+
+      <p>
+        Toutes vos données et fichiers sont stockés de manière sécurisée.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  <div class="footer-grid">
+
+    <div>
+
+      <h3>
+        StoryMag
+      </h3>
+
+      <p>
+        Transformez vos souvenirs en magazine d’exception.
+      </p>
+
+    </div>
+
+    <div>
+
+      <ul>
+        <li>Concept</li>
+        <li>Magazines</li>
+        <li>FAQ</li>
+      </ul>
+
+    </div>
+
+    <div>
+
+      <ul>
+        <li>Instagram</li>
+        <li>TikTok</li>
+        <li>contact@storymag.fr</li>
+      </ul>
+
+    </div>
+
+    <div>
+
+      <ul>
+        <li>Mentions légales</li>
+        <li>RGPD</li>
+        <li>CGV</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+
+/* =========================
+ANIMATION SCROLL
+========================= */
+
+const observer = new IntersectionObserver(entries => {
+
+  entries.forEach(entry => {
+
+    if(entry.isIntersecting){
+
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = "translateY(0px)";
+
+    }
+
+  });
+
+},{
+  threshold:0.1
+});
+
+document.querySelectorAll('.card,.feature,.testimonial').forEach(el=>{
+
+  el.style.opacity = 0;
+  el.style.transform = "translateY(60px)";
+  el.style.transition = "1s";
+
+  observer.observe(el);
+
+});
+
+</script>
 
 </body>
-
 </html>
