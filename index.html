@@ -1,1 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>StoryMag — Vos souvenirs en magazine premium</title>
+
+  <meta name="description"
+    content="StoryMag transforme vos souvenirs, photos et émotions en magazines haut de gamme personnalisés." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+
+      <a href="#" class="logo">StoryMag</a>
+
+      <nav class="nav">
+        <a href="#concept">Concept</a>
+        <a href="#types">Magazines</a>
+        <a href="#formulaire">Créer</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+      <span class="hero-badge">
+        Magazine personnalisé haut de gamme
+      </span>
+
+      <h1>
+        Vos souvenirs méritent mieux qu’une galerie photo.
+      </h1>
+
+      <p>
+        StoryMag transforme vos photos, émotions et anecdotes
+        en véritables magazines premium imprimés.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#formulaire" class="btn btn-black">
+          Créer mon magazine
+        </a>
+
+        <a href="#concept" class="btn btn-light">
+          Découvrir le concept
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="section fade-in" id="concept">
+
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-tag">Concept</span>
+        <h2>Une histoire éditoriale unique.</h2>
+      </div>
+
+      <p class="section-text">
+        StoryMag crée des magazines émotionnels premium à partir
+        de vos souvenirs, histoires et photos les plus précieuses.
+      </p>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <span>01</span>
+          <h3>Vous racontez</h3>
+        </div>
+
+        <div class="timeline-item">
+          <span>02</span>
+          <h3>Nous concevons</h3>
+        </div>
+
+        <div class="timeline-item">
+          <span>03</span>
+          <h3>Vous validez</h3>
+        </div>
+
+        <div class="timeline-item">
+          <span>04</span>
+          <h3>Nous imprimons</h3>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MAGAZINES -->
+  <section class="section magazines fade-in" id="types">
+
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-tag">Collections</span>
+        <h2>Des magazines pour chaque histoire.</h2>
+      </div>
+
+      <div class="cards">
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
+            alt="Magazine anniversaire">
+
+          <div class="card-content">
+            <h3>Anniversaire</h3>
+            <p>Un cadeau émotionnel inoubliable.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"
+            alt="Magazine couple">
+
+          <div class="card-content">
+            <h3>Couple</h3>
+            <p>Votre histoire racontée comme un vrai magazine.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552"
+            alt="Magazine mariage">
+
+          <div class="card-content">
+            <h3>Mariage</h3>
+            <p>Revivez votre journée la plus précieuse.</p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- POURQUOI -->
+  <section class="section dark fade-in">
+
+    <div class="container">
+
+      <div class="section-heading center">
+        <span class="section-tag light">Pourquoi StoryMag</span>
+        <h2>Une expérience premium.</h2>
+      </div>
+
+      <div class="benefits">
+
+        <div class="benefit">
+          <i data-feather="star"></i>
+          <p>100% personnalisé</p>
+        </div>
+
+        <div class="benefit">
+          <i data-feather="award"></i>
+          <p>Qualité premium</p>
+        </div>
+
+        <div class="benefit">
+          <i data-feather="heart"></i>
+          <p>Émotion garantie</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FORM -->
+  <section class="section fade-in" id="formulaire">
+
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="section-tag">Créer</span>
+        <h2>Commencez votre StoryMag.</h2>
+      </div>
+
+      <form class="form">
+
+        <input type="text" placeholder="Prénom" required>
+        <input type="text" placeholder="Nom" required>
+        <input type="email" placeholder="Email" required>
+
+        <textarea placeholder="Racontez votre histoire..."></textarea>
+
+        <button type="submit" class="btn btn-black">
+          Envoyer ma demande
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="container">
+
+      <h3>StoryMag</h3>
+
+      <p>
+        Magazine personnalisé haut de gamme.
+      </p>
+
+      <small>
+        © 2026 StoryMag — Tous droits réservés
+      </small>
+
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
