@@ -1,1205 +1,1339 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>StoryMag — Magazine Premium</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>STRATA — Vases Artisanaux Imprimés en 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-
-:root{
-  --bg:#f6f2eb;
-  --cream:#f8f5f1;
-  --black:#111111;
-  --gold:#c8a96b;
-  --text:#3d3d3d;
-  --border:rgba(0,0,0,0.08);
-  --white:#ffffff;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--black);
-  overflow-x:hidden;
-}
-
-/* =========================
-NAVBAR
-========================= */
-
-.navbar{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:1000;
-  backdrop-filter:blur(20px);
-  background:rgba(255,255,255,0.7);
-  border-bottom:1px solid var(--border);
-}
-
-.nav-inner{
-  max-width:1400px;
-  margin:auto;
-  padding:20px 30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  font-family:'Cormorant Garamond',serif;
-  font-size:36px;
-  font-weight:700;
-  letter-spacing:1px;
-}
-
-.nav-links{
-  display:flex;
-  gap:40px;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:var(--black);
-  font-size:14px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-}
-
-.nav-btn{
-  background:var(--black);
-  color:white;
-  border:none;
-  padding:15px 28px;
-  border-radius:40px;
-  cursor:pointer;
-  font-weight:600;
-}
-
-/* =========================
-HERO
-========================= */
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  padding:140px 40px 80px;
-}
-
-.hero-grid{
-  max-width:1400px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:center;
-}
-
-.hero-sub{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:5px;
-  font-size:12px;
-  margin-bottom:20px;
-}
-
-.hero h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:88px;
-  line-height:0.95;
-  font-weight:700;
-}
-
-.hero p{
-  margin-top:35px;
-  color:var(--text);
-  line-height:1.8;
-  font-size:19px;
-  max-width:580px;
-}
-
-.hero-buttons{
-  margin-top:45px;
-  display:flex;
-  gap:20px;
-}
-
-.btn-primary{
-  background:var(--black);
-  color:white;
-  padding:18px 34px;
-  border-radius:50px;
-  border:none;
-  cursor:pointer;
-  font-size:15px;
-  font-weight:600;
-}
-
-.btn-secondary{
-  background:transparent;
-  border:1px solid var(--black);
-  padding:18px 34px;
-  border-radius:50px;
-  cursor:pointer;
-  font-size:15px;
-}
-
-.hero-image{
-  position:relative;
-}
-
-.hero-image img{
-  width:100%;
-  border-radius:40px;
-  box-shadow:0 30px 80px rgba(0,0,0,0.15);
-}
-
-.hero-card{
-  position:absolute;
-  bottom:-40px;
-  left:-40px;
-  background:white;
-  padding:30px;
-  border-radius:30px;
-  width:260px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.08);
-}
-
-.hero-card p:first-child{
-  font-size:12px;
-  text-transform:uppercase;
-  color:var(--gold);
-  letter-spacing:2px;
-}
-
-.hero-card p:last-child{
-  font-family:'Cormorant Garamond',serif;
-  font-size:30px;
-  line-height:1.1;
-  margin-top:10px;
-}
-
-/* =========================
-SECTION
-========================= */
-
-.section{
-  padding:140px 40px;
-}
-
-.section.white{
-  background:white;
-}
-
-.container{
-  max-width:1400px;
-  margin:auto;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:80px;
-}
-
-.section-title p{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:4px;
-  font-size:12px;
-}
-
-.section-title h2{
-  font-family:'Cormorant Garamond',serif;
-  font-size:72px;
-  margin-top:20px;
-}
-
-/* =========================
-TIMELINE
-========================= */
-
-.timeline{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:30px;
-  margin-top:100px;
-}
-
-.timeline-item{
-  text-align:center;
-}
-
-.timeline-circle{
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  background:var(--black);
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:auto;
-  font-family:'Cormorant Garamond',serif;
-  font-size:34px;
-}
-
-.timeline-item h3{
-  margin-top:30px;
-  font-size:20px;
-}
-
-/* =========================
-MAGAZINES
-========================= */
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:40px;
-}
-
-.card{
-  background:white;
-  border-radius:40px;
-  overflow:hidden;
-  transition:0.4s;
-  cursor:pointer;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-}
-
-.card:hover{
-  transform:translateY(-12px);
-}
-
-.card img{
-  width:100%;
-  height:430px;
-  object-fit:cover;
-}
-
-.card-content{
-  padding:40px;
-}
-
-.card-content h3{
-  font-family:'Cormorant Garamond',serif;
-  font-size:42px;
-}
-
-.card-content p{
-  margin-top:18px;
-  color:var(--text);
-  line-height:1.7;
-}
-
-.card-content button{
-  margin-top:30px;
-  background:none;
-  border:none;
-  font-weight:600;
-  cursor:pointer;
-}
-
-/* =========================
-PREMIUM
-========================= */
-
-.premium{
-  background:#111;
-  color:white;
-}
-
-.features{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:40px;
-}
-
-.feature{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.06);
-  border-radius:40px;
-  padding:50px;
-}
-
-.feature-icon{
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  background:white;
-  color:black;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-}
-
-.feature h3{
-  margin-top:30px;
-  font-size:34px;
-  font-family:'Cormorant Garamond',serif;
-}
-
-.feature p{
-  margin-top:18px;
-  color:rgba(255,255,255,0.7);
-  line-height:1.7;
-}
-
-/* =========================
-FORM
-========================= */
-
-.form-box{
-  background:white;
-  border-radius:50px;
-  padding:70px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.08);
-}
-
-.progress{
-  width:100%;
-  height:8px;
-  background:#ececec;
-  border-radius:20px;
-  overflow:hidden;
-  margin-bottom:50px;
-}
-
-.progress-bar{
-  width:30%;
-  height:100%;
-  background:black;
-}
-
-.form-box h3{
-  font-family:'Cormorant Garamond',serif;
-  font-size:58px;
-}
-
-.inputs{
-  margin-top:50px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
-}
-
-.inputs input,
-.inputs textarea,
-.inputs select{
-  width:100%;
-  border:1px solid #ddd;
-  padding:22px;
-  border-radius:24px;
-  font-size:16px;
-  font-family:'Inter';
-}
-
-.inputs textarea{
-  min-height:180px;
-  resize:none;
-}
-
-.full{
-  grid-column:1/3;
-}
-
-.upload{
-  border:2px dashed #ccc;
-  border-radius:30px;
-  padding:70px;
-  text-align:center;
-}
-
-.upload h4{
-  font-size:28px;
-  margin-top:20px;
-}
-
-.upload p{
-  color:#666;
-  margin-top:10px;
-}
-
-.form-buttons{
-  display:flex;
-  justify-content:space-between;
-  margin-top:50px;
-}
-
-/* =========================
-PACKAGING
-========================= */
-
-.packaging-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:center;
-}
-
-.packaging-grid img{
-  width:100%;
-  border-radius:40px;
-}
-
-.packaging-grid h2{
-  font-family:'Cormorant Garamond',serif;
-  font-size:74px;
-}
-
-.packaging-grid p{
-  margin-top:30px;
-  color:var(--text);
-  line-height:1.8;
-  font-size:18px;
-}
-
-/* =========================
-TESTIMONIALS
-========================= */
-
-.testimonials{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:40px;
+/* ===== VARIABLES ===== */
+:root {
+  --black: #0a0907;
+  --dark: #111009;
+  --dark2: #1a1812;
+  --gold: #c9a96e;
+  --gold-light: #e2c99a;
+  --gold-dark: #8a6c3a;
+  --copper: #b87333;
+  --cream: #f5f0e8;
+  --cream2: #ede8de;
+  --text: #d4cfc6;
+  --text-dim: #7a766e;
+  --glass: rgba(201,169,110,0.06);
+  --glass-border: rgba(201,169,110,0.15);
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --ease: cubic-bezier(0.76, 0, 0.24, 1);
+  --nav-h: 70px;
+}
+@media (max-width: 768px) { :root { --nav-h: 60px; } }
+
+/* ===== RESET ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { background: var(--black); color: var(--text); font-family: var(--font-body); font-weight: 300; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+button { border: none; background: none; font-family: var(--font-body); cursor: pointer; }
+input, select, textarea { font-family: var(--font-body); }
+img { max-width: 100%; display: block; }
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
+
+/* ===== CURSOR (desktop only) ===== */
+#cursor, #cursor-ring { position: fixed; pointer-events: none; z-index: 99999; transform: translate(-50%,-50%); }
+#cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; transition: width .3s var(--ease), height .3s var(--ease); }
+#cursor-ring { width: 36px; height: 36px; border: 1px solid rgba(201,169,110,0.5); border-radius: 50%; transition: all .15s ease; }
+@media (max-width: 1024px) { #cursor, #cursor-ring { display: none; } }
+
+/* ===== INTRO ===== */
+#intro {
+  position: fixed; inset: 0;
+  background: var(--black);
+  z-index: 9999;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  overflow: hidden;
+  transition: opacity .8s ease;
+}
+#intro.fade-out { opacity: 0; pointer-events: none; }
+#intro-canvas { position: absolute; inset: 0; }
+#intro-brand { position: relative; z-index: 2; text-align: center; padding: 0 1rem; }
+#intro-letters {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 10vw, 7rem);
+  font-weight: 300;
+  letter-spacing: .35em;
+  color: var(--gold);
+  display: flex; justify-content: center;
+}
+#intro-letters span { opacity: 0; transform: translateY(20px); display: inline-block; transition: opacity .4s ease, transform .4s ease; }
+#intro-tagline { font-size: clamp(.6rem, 2vw, .75rem); letter-spacing: .3em; text-transform: uppercase; color: var(--text-dim); margin-top: 1rem; opacity: 0; transition: opacity .8s ease; }
+#intro-line { width: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 1.2rem auto; transition: width 1s var(--ease); }
+
+/* ===== MAIN WRAPPER ===== */
+#main-wrapper { opacity: 0; transition: opacity .8s ease; }
+#main-wrapper.visible { opacity: 1; }
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: var(--nav-h);
+  padding: 0 4rem;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .4s;
+}
+nav.scrolled { background: rgba(10,9,7,0.96); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); }
+.nav-logo { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: .25em; color: var(--gold); font-weight: 300; cursor: pointer; }
+.nav-links { display: flex; gap: 2.5rem; align-items: center; }
+.nav-links a { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); position: relative; transition: color .3s; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width .4s var(--ease); }
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-right { display: flex; gap: .8rem; align-items: center; }
+.nav-cart, .nav-user { width: 40px; height: 40px; border: 1px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: border-color .3s, background .3s; position: relative; color: var(--text-dim); }
+.nav-cart:hover, .nav-user:hover { border-color: var(--gold); background: var(--glass); color: var(--gold); }
+.cart-count { position: absolute; top: -5px; right: -5px; background: var(--gold); color: var(--black); font-size: .6rem; font-weight: 500; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .3s; }
+.cart-count.visible { opacity: 1; }
+.nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; padding: 4px; }
+.nav-hamburger span { display: block; height: 1px; background: var(--gold); transition: all .4s var(--ease); transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ===== MOBILE MENU ===== */
+#mobile-menu { position: fixed; inset: 0; background: rgba(10,9,7,0.98); z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity .4s ease; }
+#mobile-menu.open { opacity: 1; pointer-events: all; }
+.mobile-nav-link { font-family: var(--font-display); font-size: clamp(2rem, 8vw, 3rem); font-weight: 300; color: var(--cream); letter-spacing: .05em; opacity: 0; transform: translateY(20px); transition: opacity .4s ease, transform .4s ease, color .3s; }
+#mobile-menu.open .mobile-nav-link { opacity: 1; transform: translateY(0); }
+#mobile-menu.open .mobile-nav-link:nth-child(1) { transition-delay: .1s; }
+#mobile-menu.open .mobile-nav-link:nth-child(2) { transition-delay: .2s; }
+#mobile-menu.open .mobile-nav-link:nth-child(3) { transition-delay: .3s; }
+#mobile-menu.open .mobile-nav-link:nth-child(4) { transition-delay: .4s; }
+#mobile-menu.open .mobile-nav-link:nth-child(5) { transition-delay: .5s; }
+.mobile-nav-link:hover { color: var(--gold); }
+.mobile-menu-footer { position: absolute; bottom: 3rem; font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; color: var(--text-dim); }
+
+/* ===== SECTIONS ===== */
+section { display: none; }
+section.active { display: block; }
+
+/* ===== HERO ===== */
+#section-home { min-height: 100vh; position: relative; display: none; flex-direction: column; overflow: hidden; }
+#section-home.active { display: flex; }
+#hero-canvas { position: absolute; inset: 0; opacity: .4; pointer-events: none; }
+.hero-content { position: relative; z-index: 2; padding: 0 4rem; padding-top: var(--nav-h); min-height: 100vh; display: flex; flex-direction: column; justify-content: center; max-width: 900px; }
+.hero-eyebrow { font-size: .68rem; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; opacity: 0; animation: fadeUp .8s .5s var(--ease) forwards; }
+.hero-title { font-family: var(--font-display); font-size: clamp(2.8rem, 7vw, 6.5rem); font-weight: 300; line-height: 1.05; color: var(--cream); margin-bottom: 1.5rem; }
+.hero-title .word { display: inline-block; overflow: hidden; }
+.hero-title .word span { display: inline-block; transform: translateY(110%); animation: slideUp .9s var(--ease) forwards; }
+.hero-title .word:nth-child(2) span { animation-delay: .15s; }
+.hero-title .word:nth-child(3) span { animation-delay: .3s; }
+.hero-title .word:nth-child(4) span { animation-delay: .45s; }
+.hero-title .italic { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: clamp(.85rem, 2vw, 1rem); color: var(--text-dim); max-width: 500px; margin-bottom: 3rem; opacity: 0; animation: fadeUp .8s 1s var(--ease) forwards; line-height: 1.7; border-left: 1px solid var(--gold-dark); padding-left: 1.5rem; }
+.typewriter-cursor { display: inline-block; width: 1px; height: 1em; background: var(--gold); margin-left: 2px; animation: blink 1s step-end infinite; vertical-align: middle; }
+.btn-cta { display: inline-flex; align-items: center; gap: 1rem; padding: 1.1rem 2.8rem; border: 1px solid var(--gold); color: var(--gold); font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; position: relative; overflow: hidden; opacity: 0; animation: fadeUp .8s 1.2s var(--ease) forwards; transition: color .5s; }
+.btn-cta::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateX(-101%); transition: transform .5s var(--ease); }
+.btn-cta:hover { color: var(--black); }
+.btn-cta:hover::before { transform: translateX(0); }
+.btn-cta span, .btn-cta svg { position: relative; z-index: 1; }
+.hero-floating-badge { position: absolute; right: 6rem; top: 50%; transform: translateY(-50%); width: 130px; height: 130px; border: 1px solid var(--glass-border); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--glass); backdrop-filter: blur(10px); opacity: 0; animation: rotateBadge 20s linear infinite, fadeIn 1s 1.5s forwards; }
+.hero-floating-badge .badge-text { font-family: var(--font-display); font-size: 1.8rem; color: var(--gold); }
+.hero-floating-badge .badge-sub { font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); }
+.hero-scroll-indicator { position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: .5rem; opacity: 0; animation: fadeUp .8s 1.5s forwards; }
+.scroll-line { width: 1px; height: 50px; background: linear-gradient(var(--gold), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+
+/* ===== PHILOSOPHY STRIP ===== */
+.home-philosophy { position: relative; z-index: 2; padding: 7rem 4rem; background: var(--dark); }
+.home-philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1000px; margin: 4rem auto 0; }
+.philosophy-card { text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--glass-border); background: var(--glass); transition: border-color .3s, transform .4s var(--ease); }
+.philosophy-card:hover { border-color: var(--gold-dark); transform: translateY(-4px); }
+.philosophy-num { font-family: var(--font-display); font-size: 3rem; color: var(--gold); margin-bottom: .5rem; }
+.philosophy-card h3 { font-family: var(--font-display); font-size: 1.1rem; color: var(--cream); margin-bottom: .8rem; }
+.philosophy-card p { font-size: .82rem; color: var(--text-dim); line-height: 1.7; }
+
+/* ===== FOOTER ===== */
+footer { background: var(--dark); border-top: 1px solid var(--glass-border); padding: 5rem 4rem 2rem; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+.footer-logo { font-family: var(--font-display); font-size: 2rem; color: var(--gold); letter-spacing: .3em; margin-bottom: 1rem; }
+.footer-tagline { font-size: .78rem; color: var(--text-dim); line-height: 1.7; margin-bottom: 1.5rem; max-width: 280px; }
+.footer-socials { display: flex; gap: .8rem; }
+.social-link { width: 38px; height: 38px; border: 1px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-dim); transition: all .3s; }
+.social-link:hover { border-color: var(--gold); color: var(--gold); }
+.footer-col h4 { font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+.footer-col a { display: block; font-size: .82rem; color: var(--text-dim); margin-bottom: .6rem; transition: color .3s; }
+.footer-col a:hover { color: var(--cream); }
+.newsletter-input { display: flex; border: 1px solid var(--glass-border); overflow: hidden; transition: border-color .3s; }
+.newsletter-input:focus-within { border-color: var(--gold); }
+.newsletter-input input { flex: 1; background: transparent; border: none; padding: .8rem 1rem; color: var(--text); font-size: .82rem; outline: none; min-width: 0; }
+.newsletter-input input::placeholder { color: var(--text-dim); }
+.newsletter-btn { padding: .8rem 1rem; background: var(--gold); color: var(--black); font-size: .7rem; font-weight: 500; flex-shrink: 0; transition: background .3s; }
+.newsletter-btn:hover { background: var(--gold-light); }
+.footer-bottom { border-top: 1px solid var(--glass-border); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { font-size: .72rem; color: var(--text-dim); }
+.footer-legal { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.footer-legal a { font-size: .72rem; color: var(--text-dim); transition: color .3s; }
+.footer-legal a:hover { color: var(--cream); }
+
+/* ===== SECTION COMMON ===== */
+.section-header { text-align: center; margin-bottom: 6rem; }
+.section-eyebrow { font-size: .68rem; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem; }
+.section-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); font-weight: 300; color: var(--cream); line-height: 1.1; }
+.section-title em { font-style: italic; color: var(--gold); }
+
+/* ===== ABOUT ===== */
+#section-about { padding: 8rem 4rem; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-bottom: 7rem; }
+.about-vase-visual { height: 400px; display: flex; align-items: center; justify-content: center; }
+.about-vase-svg { animation: floatVase 6s ease-in-out infinite; }
+.about-text h3 { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 300; color: var(--cream); margin-bottom: 1.5rem; line-height: 1.2; }
+.about-text h3 em { font-style: italic; color: var(--gold); }
+.about-text p { color: var(--text-dim); line-height: 1.9; margin-bottom: 1.2rem; font-size: .95rem; }
+.about-quote { margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--glass-border); background: var(--glass); }
+.about-quote p { font-family: var(--font-display); font-size: 1.1rem; font-style: italic; color: var(--cream); line-height: 1.5; margin-bottom: .8rem; }
+.about-quote cite { font-size: .75rem; color: var(--gold); letter-spacing: .1em; }
+.about-process { background: var(--dark2); border: 1px solid var(--glass-border); padding: 4rem; margin-bottom: 5rem; }
+.process-title { font-family: var(--font-display); font-size: 1.8rem; font-weight: 300; color: var(--cream); text-align: center; margin-bottom: 3rem; }
+.process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+.process-step { text-align: center; position: relative; }
+.process-step:not(:last-child)::after { content: ''; position: absolute; top: 28px; right: -1rem; width: 2rem; height: 1px; background: var(--gold-dark); }
+.process-icon { width: 56px; height: 56px; margin: 0 auto 1rem; border: 1px solid var(--gold-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.process-icon::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: scaleY(0); transform-origin: bottom; transition: transform .6s var(--ease); }
+.process-step:hover .process-icon::before { transform: scaleY(1); }
+.process-icon svg { position: relative; z-index: 1; }
+.process-step h4 { font-family: var(--font-display); font-size: 1rem; color: var(--cream2); margin-bottom: .4rem; }
+.process-step p { font-size: .78rem; color: var(--text-dim); line-height: 1.5; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--glass-border); border: 1px solid var(--glass-border); }
+.stat-item { background: var(--dark); padding: 3rem 2rem; text-align: center; }
+.stat-number { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: .5rem; }
+.stat-label { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--text-dim); }
+
+/* ===== CATALOGUE ===== */
+#section-catalogue { padding: 8rem 4rem; }
+.filter-bar { display: flex; gap: 1rem; margin-bottom: 4rem; justify-content: center; flex-wrap: wrap; }
+.filter-btn { padding: .6rem 1.6rem; border: 1px solid var(--glass-border); color: var(--text-dim); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; transition: all .3s; }
+.filter-btn.active, .filter-btn:hover { border-color: var(--gold); color: var(--gold); background: var(--glass); }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+.product-card { background: var(--dark2); border: 1px solid var(--glass-border); overflow: hidden; position: relative; transition: transform .5s var(--ease), box-shadow .5s; }
+.product-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,169,110,0.2); }
+.product-badge { position: absolute; top: 1rem; left: 1rem; z-index: 3; padding: .3rem .8rem; font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 500; }
+.badge-new { background: var(--gold); color: var(--black); }
+.badge-best { background: var(--copper); color: var(--black); }
+.badge-limited { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
+.product-img-zone { width: 100%; height: 260px; position: relative; overflow: hidden; background: var(--dark2); }
+.product-img-zone img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform .6s var(--ease); }
+.product-card:hover .product-img-zone img { transform: scale(1.06); }
+.product-img-zone .img-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .8rem; border: 1px dashed rgba(201,169,110,0.2); color: var(--text-dim); }
+.product-img-zone .img-placeholder svg { opacity: .3; }
+.product-img-zone .img-placeholder span { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; opacity: .5; }
+.product-info { padding: 1.4rem; }
+.product-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--cream); margin-bottom: .3rem; }
+.product-desc { font-size: .78rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 1.2rem; }
+.product-meta { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+.product-price { font-family: var(--font-display); font-size: 1.5rem; font-weight: 300; color: var(--gold); flex-shrink: 0; }
+.btn-add { padding: .6rem 1.3rem; border: 1px solid var(--gold-dark); color: var(--gold); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; position: relative; overflow: hidden; transition: color .4s; flex-shrink: 0; }
+.btn-add::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform .4s var(--ease); }
+.btn-add:hover { color: var(--black); }
+.btn-add:hover::before { transform: translateY(0); }
+.btn-add span { position: relative; z-index: 1; }
+
+/* ===== CART SIDEBAR ===== */
+#cart-sidebar { position: fixed; top: 0; right: -520px; width: 520px; height: 100vh; background: var(--dark); border-left: 1px solid var(--glass-border); z-index: 2000; display: flex; flex-direction: column; transition: right .6s var(--ease); }
+#cart-sidebar.open { right: 0; }
+#cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1999; opacity: 0; pointer-events: none; transition: opacity .4s; backdrop-filter: blur(4px); }
+#cart-overlay.active { opacity: 1; pointer-events: all; }
+.cart-header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+.cart-header h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 300; color: var(--cream); }
+.cart-close { width: 36px; height: 36px; border: 1px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-dim); transition: all .3s; }
+.cart-close:hover { border-color: var(--gold); color: var(--gold); }
+.cart-items { flex: 1; overflow-y: auto; padding: 1.5rem 2rem; }
+.cart-item { display: grid; grid-template-columns: 70px 1fr auto; gap: 1rem; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid var(--glass-border); }
+.cart-item-thumb { width: 70px; height: 70px; background: var(--dark2); border: 1px solid var(--glass-border); overflow: hidden; }
+.cart-item-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.cart-item-thumb .thumb-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.cart-item-name { font-family: var(--font-display); font-size: 1rem; color: var(--cream); margin-bottom: .2rem; }
+.cart-item-price { font-size: .85rem; color: var(--gold); }
+.cart-qty { display: flex; align-items: center; gap: .5rem; margin-top: .5rem; }
+.qty-btn { width: 28px; height: 28px; border: 1px solid var(--glass-border); color: var(--text-dim); font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+.qty-btn:hover { border-color: var(--gold); color: var(--gold); }
+.qty-val { font-size: .85rem; min-width: 20px; text-align: center; }
+.cart-item-remove { color: var(--text-dim); transition: color .3s; font-size: .7rem; letter-spacing: .1em; }
+.cart-item-remove:hover { color: #e07070; }
+.cart-footer { padding: 1.5rem 2rem; border-top: 1px solid var(--glass-border); flex-shrink: 0; }
+.cart-total { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.cart-total span:first-child { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); }
+.cart-total-price { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--gold); }
+.btn-checkout { width: 100%; padding: 1.2rem; background: var(--gold); color: var(--black); font-size: .72rem; letter-spacing: .3em; text-transform: uppercase; font-weight: 500; position: relative; overflow: hidden; transition: all .4s; }
+.btn-checkout::before { content: ''; position: absolute; inset: 0; background: var(--cream); transform: translateX(-101%); transition: transform .4s var(--ease); }
+.btn-checkout:hover::before { transform: translateX(0); }
+.btn-checkout span { position: relative; z-index: 1; }
+.cart-empty { text-align: center; padding: 4rem 2rem; color: var(--text-dim); }
+.cart-empty-icon { margin-bottom: 1.5rem; opacity: .3; }
+.cart-empty h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--cream); margin-bottom: .5rem; }
+
+/* ===== CHECKOUT ===== */
+#section-checkout { padding: 8rem 4rem; }
+.checkout-grid { display: grid; grid-template-columns: 1fr 400px; gap: 4rem; max-width: 1200px; margin: 0 auto; }
+.checkout-form-section h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--cream); margin-bottom: 1.5rem; padding-bottom: .8rem; border-bottom: 1px solid var(--glass-border); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: .5rem; }
+.form-group input, .form-group select { width: 100%; background: var(--dark2); border: 1px solid var(--glass-border); color: var(--text); padding: .9rem 1rem; font-size: .9rem; outline: none; transition: border-color .3s; -webkit-appearance: none; border-radius: 0; }
+.form-group input:focus, .form-group select:focus { border-color: var(--gold); }
+.form-group input::placeholder { color: var(--text-dim); }
+.card-input-wrapper { background: var(--dark2); border: 1px solid var(--glass-border); padding: 1.5rem; margin-top: 2rem; position: relative; overflow: hidden; }
+.card-input-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(var(--gold), var(--copper)); }
+.card-chips { display: flex; gap: .5rem; margin-bottom: 1rem; }
+.card-chip { padding: .2rem .6rem; border: 1px solid var(--glass-border); font-size: .6rem; letter-spacing: .1em; color: var(--text-dim); }
+.card-number-display { font-family: var(--font-display); font-size: clamp(1rem, 3vw, 1.4rem); letter-spacing: .25em; color: var(--cream); margin-bottom: .8rem; }
+.checkout-summary { background: var(--dark2); border: 1px solid var(--glass-border); padding: 2rem; height: fit-content; position: sticky; top: calc(var(--nav-h) + 1rem); }
+.checkout-summary h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 300; color: var(--cream); margin-bottom: 1.5rem; padding-bottom: .8rem; border-bottom: 1px solid var(--glass-border); }
+.summary-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: .8rem; font-size: .85rem; color: var(--text-dim); }
+.summary-item.total { padding-top: 1rem; margin-top: .5rem; border-top: 1px solid var(--glass-border); color: var(--cream); font-size: 1rem; }
+.summary-item.total .summary-price { font-family: var(--font-display); font-size: 1.5rem; color: var(--gold); }
+.btn-pay { width: 100%; padding: 1.3rem; background: var(--gold); color: var(--black); font-size: .72rem; letter-spacing: .3em; text-transform: uppercase; font-weight: 500; margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: .8rem; transition: opacity .3s; }
+.btn-pay:active { opacity: .8; }
+.pay-loader { width: 18px; height: 18px; border: 2px solid rgba(0,0,0,0.3); border-top-color: var(--black); border-radius: 50%; animation: spin .8s linear infinite; display: none; }
+.btn-pay.loading .pay-loader { display: block; }
+.btn-pay.loading .pay-text { display: none; }
+
+/* ===== CONFIRM ===== */
+.confirm-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 5000; display: none; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 2rem; }
+.confirm-overlay.active { display: flex; }
+.confirm-icon { width: 80px; height: 80px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; animation: confirmPop .5s var(--ease); }
+.confirm-title { font-family: var(--font-display); font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 300; color: var(--cream); margin-bottom: .8rem; }
+.confirm-sub { color: var(--text-dim); margin-bottom: 2rem; line-height: 1.6; }
+.btn-outline { padding: .9rem 2.5rem; border: 1px solid var(--gold); color: var(--gold); font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; transition: all .3s; background: transparent; }
+.btn-outline:hover { background: var(--gold); color: var(--black); }
+
+/* ===== PROFILE ===== */
+#section-profile { padding: 8rem 4rem; }
+.profile-grid { display: grid; grid-template-columns: 260px 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto; }
+.profile-sidebar { background: var(--dark2); border: 1px solid var(--glass-border); padding: 2rem; height: fit-content; }
+.profile-avatar { width: 80px; height: 80px; background: linear-gradient(135deg, var(--gold-dark), var(--copper)); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 2rem; color: var(--black); }
+.profile-name { text-align: center; font-family: var(--font-display); font-size: 1.2rem; color: var(--cream); margin-bottom: .2rem; }
+.profile-email { text-align: center; font-size: .75rem; color: var(--text-dim); margin-bottom: 2rem; }
+.profile-tabs { border-top: 1px solid var(--glass-border); }
+.profile-tab { width: 100%; padding: .9rem 0; text-align: left; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; gap: .8rem; transition: color .3s; position: relative; }
+.profile-tab::before { content: ''; position: absolute; left: -2rem; width: 2px; height: 100%; background: var(--gold); opacity: 0; transition: opacity .3s; }
+.profile-tab.active, .profile-tab:hover { color: var(--gold); }
+.profile-tab.active::before { opacity: 1; }
+.profile-content > div { display: none; }
+.profile-content > div.active { display: block; }
+.info-form { max-width: 500px; }
+.orders-list { display: flex; flex-direction: column; gap: 1rem; }
+.order-card { background: var(--dark2); border: 1px solid var(--glass-border); padding: 1.5rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1rem; }
+.order-ref { font-size: .7rem; letter-spacing: .2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: .2rem; }
+.order-name { font-family: var(--font-display); font-size: 1.1rem; color: var(--cream); }
+.order-date { font-size: .8rem; color: var(--text-dim); }
+.order-status { padding: .3rem .8rem; font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; }
+.status-delivered { background: rgba(100,200,100,0.1); color: #78c878; border: 1px solid rgba(100,200,100,0.3); }
+.status-shipped { background: rgba(201,169,110,0.1); color: var(--gold); border: 1px solid rgba(201,169,110,0.3); }
+.order-total { font-family: var(--font-display); font-size: 1.2rem; color: var(--gold); margin-top: .4rem; }
+.tracking-header { background: var(--dark2); border: 1px solid var(--glass-border); padding: 1.5rem; margin-bottom: 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.tracking-ref { font-family: var(--font-display); font-size: 1.1rem; color: var(--cream); }
+.timeline { position: relative; padding-left: 3rem; }
+.timeline::before { content: ''; position: absolute; left: 1rem; top: 0; bottom: 0; width: 1px; background: var(--glass-border); }
+.timeline-item { position: relative; margin-bottom: 2.5rem; }
+.timeline-dot { position: absolute; left: -2.65rem; top: 4px; width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--glass-border); background: var(--dark); display: flex; align-items: center; justify-content: center; }
+.timeline-dot.done { border-color: var(--gold); background: var(--gold); }
+.timeline-dot.active { border-color: var(--gold); background: transparent; box-shadow: 0 0 0 4px rgba(201,169,110,0.15); animation: pulseDot 2s ease-in-out infinite; }
+.timeline-title { font-family: var(--font-display); font-size: 1rem; color: var(--cream); margin-bottom: .2rem; }
+.timeline-date { font-size: .75rem; color: var(--text-dim); }
+.timeline-desc { font-size: .82rem; color: var(--text-dim); margin-top: .3rem; }
+
+/* ===== FAQ ===== */
+#section-faq { padding: 8rem 4rem; max-width: 900px; margin: 0 auto; }
+.faq-list { margin-top: 3rem; }
+.faq-item { border-bottom: 1px solid var(--glass-border); overflow: hidden; }
+.faq-question { width: 100%; padding: 1.6rem 0; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-display); font-size: clamp(.95rem, 2.5vw, 1.1rem); font-weight: 400; color: var(--cream); text-align: left; gap: 1rem; transition: color .3s; }
+.faq-question:hover { color: var(--gold); }
+.faq-icon { width: 28px; height: 28px; flex-shrink: 0; border: 1px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all .4s var(--ease); color: var(--gold); }
+.faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--gold); background: var(--gold); color: var(--black); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height .5s var(--ease); }
+.faq-answer-inner { padding: 0 0 1.5rem; color: var(--text-dim); font-size: .9rem; line-height: 1.8; }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes slideUp { to { transform: translateY(0); } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes scrollPulse { 0%,100% { opacity:.5; } 50% { opacity:1; } }
+@keyframes floatVase { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-15px); } }
+@keyframes rotateBadge { to { transform:translateY(-50%) rotate(360deg); } }
+@keyframes pulseDot { 0%,100% { box-shadow:0 0 0 4px rgba(201,169,110,0.15); } 50% { box-shadow:0 0 0 8px rgba(201,169,110,0.08); } }
+@keyframes confirmPop { 0% { transform:scale(0); opacity:0; } 100% { transform:scale(1); opacity:1; } }
+@keyframes drawCheck { to { stroke-dashoffset: 0; } }
+@keyframes pageEnter { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.page-enter { animation: pageEnter .5s var(--ease) forwards; }
+.reveal { opacity:0; transform:translateY(40px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-left { opacity:0; transform:translateX(-40px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal-left.visible { opacity:1; transform:translateX(0); }
+.reveal-right { opacity:0; transform:translateX(40px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal-right.visible { opacity:1; transform:translateX(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+.reveal-delay-4 { transition-delay:.4s; }
+
+/* ===================================================
+   RESPONSIVE — TABLET ≤ 1024px
+   =================================================== */
+@media (max-width: 1024px) {
+  nav { padding: 0 2rem; }
+  .nav-links { gap: 1.8rem; }
+  .nav-user { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero-content { padding: 0 2.5rem; padding-top: var(--nav-h); }
+  .home-philosophy { padding: 5rem 2.5rem; }
+  .home-philosophy-grid { grid-template-columns: 1fr 1fr; }
+  #section-about { padding: 6rem 2.5rem; }
+  .about-grid { gap: 3rem; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .process-step:not(:last-child)::after { display: none; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  #section-catalogue { padding: 6rem 2.5rem; }
+  .about-process { padding: 2.5rem; }
+  .checkout-grid { grid-template-columns: 1fr; }
+  .checkout-summary { position: static; }
+  #section-checkout { padding: 6rem 2.5rem; }
+  .profile-grid { grid-template-columns: 1fr; }
+  #section-profile { padding: 6rem 2.5rem; }
+  #section-faq { padding: 6rem 2.5rem; }
+  footer { padding: 4rem 2.5rem 2rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  #cart-sidebar { width: 420px; right: -420px; }
+  .hero-floating-badge { display: none; }
+  .hero-scroll-indicator { display: none; }
+}
+
+/* ===================================================
+   RESPONSIVE — MOBILE ≤ 768px
+   =================================================== */
+@media (max-width: 768px) {
+  /* Nav */
+  nav { padding: 0 1.2rem; }
+  .nav-links { display: none; }
+
+  /* Hero — stack vertically, full width */
+  .hero-content {
+    padding: calc(var(--nav-h) + 2.5rem) 1.2rem 3rem;
+    min-height: 100vh;
+    max-width: 100%;
+    justify-content: center;
+  }
+  .hero-eyebrow { margin-bottom: 1.2rem; }
+  .hero-title { font-size: clamp(2rem, 9vw, 3.2rem); margin-bottom: 1.2rem; }
+  .hero-sub { font-size: .88rem; margin-bottom: 2rem; max-width: 100%; }
+  .btn-cta { padding: .9rem 1.8rem; font-size: .72rem; }
+  .hero-floating-badge { display: none; }
+  .hero-scroll-indicator { display: none; }
+
+  /* Philosophy */
+  .home-philosophy { padding: 3.5rem 1.2rem; }
+  .home-philosophy-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .philosophy-card { padding: 1.8rem 1.2rem; }
+
+  /* About */
+  #section-about { padding: 5rem 1.2rem; }
+  .section-header { margin-bottom: 3rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .about-vase-visual { height: 220px; }
+  .about-vase-svg { transform: scale(.75); }
+  .about-process { padding: 1.8rem 1.2rem; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat-item { padding: 1.8rem 1rem; }
+  .stat-number { font-size: 2.2rem; }
+
+  /* Catalogue */
+  #section-catalogue { padding: 5rem 1.2rem; }
+  .products-grid { grid-template-columns: 1fr 1fr; gap: .8rem; }
+  .product-img-zone { height: 170px; }
+  .product-info { padding: .9rem; }
+  .product-name { font-size: 1rem; }
+  .product-desc { display: none; }
+  .product-price { font-size: 1.1rem; }
+  .btn-add { padding: .45rem .7rem; font-size: .58rem; }
+  .filter-bar { gap: .5rem; margin-bottom: 2rem; }
+  .filter-btn { padding: .45rem .9rem; font-size: .62rem; }
+
+  /* Cart full-width */
+  #cart-sidebar { width: 100%; right: -100%; }
+
+  /* Checkout */
+  #section-checkout { padding: 5rem 1.2rem; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .card-number-display { font-size: .95rem; letter-spacing: .12em; }
+
+  /* Profile */
+  #section-profile { padding: 5rem 1.2rem; }
+  .profile-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .profile-sidebar { padding: 1.5rem 1.2rem; }
+  .profile-tabs { display: flex; flex-wrap: wrap; gap: 0; border-top: none; margin-top: 1rem; }
+  .profile-tab { width: auto; flex: 1; min-width: 90px; padding: .7rem .4rem; border: 1px solid var(--glass-border); border-bottom: none; font-size: .58rem; justify-content: center; text-align: center; flex-direction: column; gap: .3rem; }
+  .profile-tab svg { display: none; }
+  .profile-tab::before { display: none; }
+  .profile-tab.active { border-color: var(--gold); color: var(--gold); background: var(--glass); }
+  .order-card { grid-template-columns: 1fr; gap: .5rem; }
+
+  /* FAQ */
+  #section-faq { padding: 5rem 1.2rem; max-width: 100%; }
+
+  /* Footer */
+  footer { padding: 3.5rem 1.2rem 1.5rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: .8rem; }
+  .footer-legal { gap: 1rem; }
+  .footer-tagline { max-width: 100%; }
+}
+
+/* ===== VERY SMALL ≤ 400px ===== */
+@media (max-width: 400px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .product-img-zone { height: 240px; }
+  .product-desc { display: block; }
+  .process-steps { grid-template-columns: 1fr; }
 }
-
-.testimonial{
-  background:white;
-  padding:50px;
-  border-radius:40px;
-}
-
-.testimonial p{
-  font-size:22px;
-  line-height:1.8;
-}
-
-.testimonial span{
-  display:block;
-  margin-top:40px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  color:#777;
-  font-size:12px;
-}
-
-/* =========================
-FAQ
-========================= */
-
-.faq{
-  background:black;
-  color:white;
-}
-
-.faq-item{
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  padding:35px 0;
-}
-
-.faq-item h3{
-  font-size:30px;
-  font-family:'Cormorant Garamond',serif;
-}
-
-.faq-item p{
-  margin-top:20px;
-  color:rgba(255,255,255,0.7);
-  line-height:1.8;
-}
-
-/* =========================
-FOOTER
-========================= */
-
-.footer{
-  background:#111;
-  color:white;
-  padding:100px 40px;
-}
-
-.footer-grid{
-  max-width:1400px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:60px;
-}
-
-.footer h3{
-  font-family:'Cormorant Garamond',serif;
-  font-size:42px;
-}
-
-.footer p{
-  color:rgba(255,255,255,0.7);
-  margin-top:20px;
-  line-height:1.8;
-}
-
-.footer ul{
-  list-style:none;
-}
-
-.footer ul li{
-  margin-bottom:16px;
-  color:rgba(255,255,255,0.7);
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:1000px){
-
-.hero-grid,
-.packaging-grid,
-.cards,
-.features,
-.testimonials,
-.footer-grid,
-.timeline{
-  grid-template-columns:1fr;
-}
-
-.hero h1{
-  font-size:58px;
-}
-
-.section-title h2{
-  font-size:52px;
-}
-
-.inputs{
-  grid-template-columns:1fr;
-}
-
-.full{
-  grid-column:auto;
-}
-
-.nav-links{
-  display:none;
-}
-
-.hero-card{
-  position:relative;
-  bottom:auto;
-  left:auto;
-  margin-top:20px;
-  width:100%;
-}
-
-}
-
 </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
 
-<div class="navbar">
-
-  <div class="nav-inner">
-
-    <div class="logo">
-      StoryMag
-    </div>
-
-    <div class="nav-links">
-      <a href="#">Concept</a>
-      <a href="#">Magazines</a>
-      <a href="#">Créer</a>
-      <a href="#">FAQ</a>
-    </div>
-
-    <button class="nav-btn">
-      Créer mon magazine
-    </button>
-
+<!-- INTRO -->
+<div id="intro">
+  <canvas id="intro-canvas"></canvas>
+  <div id="intro-brand">
+    <div id="intro-letters"></div>
+    <div id="intro-line"></div>
+    <div id="intro-tagline">L'art de la matière en couches infinies</div>
   </div>
-
 </div>
 
-<!-- HERO -->
+<!-- MOBILE MENU -->
+<div id="mobile-menu">
+  <a class="mobile-nav-link" href="#" onclick="closeMobileMenu();showSection('home');return false;">Accueil</a>
+  <a class="mobile-nav-link" href="#" onclick="closeMobileMenu();showSection('about');return false;">À Propos</a>
+  <a class="mobile-nav-link" href="#" onclick="closeMobileMenu();showSection('catalogue');return false;">Collection</a>
+  <a class="mobile-nav-link" href="#" onclick="closeMobileMenu();showSection('faq');return false;">FAQ</a>
+  <a class="mobile-nav-link" href="#" onclick="closeMobileMenu();showSection('profile');return false;">Mon Compte</a>
+  <div class="mobile-menu-footer">STRATA © 2025</div>
+</div>
 
-<section class="hero">
+<!-- MAIN -->
+<div id="main-wrapper">
 
-  <div class="hero-grid">
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo" onclick="showSection('home')">STRATA</div>
+    <div class="nav-links">
+      <a href="#" onclick="showSection('home');return false;">Accueil</a>
+      <a href="#" onclick="showSection('about');return false;">À Propos</a>
+      <a href="#" onclick="showSection('catalogue');return false;">Collection</a>
+      <a href="#" onclick="showSection('faq');return false;">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <button class="nav-user" onclick="showSection('profile')" title="Mon compte">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button class="nav-cart" id="cart-btn" onclick="toggleCart()" title="Panier">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <button class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-    <div>
+  <!-- ===== HOME ===== -->
+  <section id="section-home" class="active">
+    <canvas id="hero-canvas"></canvas>
 
-      <div class="hero-sub">
-        StoryMag Premium
-      </div>
-
-      <h1>
-        Vos souvenirs méritent mieux qu’une galerie photo.
+    <!-- Hero zone -->
+    <div class="hero-content">
+      <p class="hero-eyebrow">Collection 2025 — Édition Limitée</p>
+      <h1 class="hero-title">
+        <span class="word"><span>La</span></span>&nbsp;
+        <span class="word"><span>Matière</span></span>&nbsp;
+        <span class="word"><span>à</span></span>&nbsp;
+        <span class="word italic"><span>l'État&nbsp;Pur</span></span>
       </h1>
-
-      <p>
-        StoryMag transforme vos photos, anecdotes et émotions
-        en véritables magazines personnalisés haut de gamme.
+      <p class="hero-sub">
+        <span id="typewriter-text"></span><span class="typewriter-cursor"></span>
       </p>
-
-      <div class="hero-buttons">
-
-        <button class="btn-primary">
-          Créer mon magazine
-        </button>
-
-        <button class="btn-secondary">
-          Découvrir le concept
-        </button>
-
-      </div>
-
+      <a href="#" class="btn-cta" onclick="showSection('catalogue');return false;">
+        <span>Découvrir la collection</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
 
-    <div class="hero-image">
-
-      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200">
-
-      <div class="hero-card">
-        <p>Objet collector</p>
-        <p>Magazine personnalisé premium</p>
-      </div>
-
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span style="font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--text-dim);">Scroll</span>
+    </div>
+    <div class="hero-floating-badge">
+      <span class="badge-text">3D</span>
+      <span class="badge-sub">Artisanal</span>
     </div>
 
-  </div>
-
-</section>
-
-<!-- CONCEPT -->
-
-<section class="section white">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <p>Le concept</p>
-
-      <h2>
-        Chaque histoire mérite son propre magazine.
-      </h2>
-
-    </div>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-circle">1</div>
-        <h3>Vous racontez</h3>
+    <!-- Philosophy strip -->
+    <div class="home-philosophy">
+      <div class="section-header reveal" style="margin-bottom:3rem;">
+        <span class="section-eyebrow">Notre Philosophie</span>
+        <h2 class="section-title">Là où la <em>technologie</em> rencontre l'art</h2>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-circle">2</div>
-        <h3>Nous créons</h3>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-circle">3</div>
-        <h3>Vous validez</h3>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-circle">4</div>
-        <h3>Nous imprimons</h3>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-circle">5</div>
-        <h3>Vous recevez</h3>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- MAGAZINES -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <p>Collections</p>
-
-      <h2>
-        Des magazines créés pour les émotions.
-      </h2>
-
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-
-        <img src="https://picsum.photos/700/900?1">
-
-        <div class="card-content">
-
-          <h3>Magazine Couple</h3>
-
-          <p>
-            Une histoire d’amour transformée en expérience éditoriale premium.
-          </p>
-
-          <button>
-            Créer ce magazine →
-          </button>
-
+      <div class="home-philosophy-grid">
+        <div class="philosophy-card reveal reveal-delay-1">
+          <div class="philosophy-num">01</div>
+          <h3>Concevoir</h3>
+          <p>Chaque forme naît d'un dialogue entre l'algorithme et l'imaginaire de nos artisans.</p>
         </div>
-
-      </div>
-
-      <div class="card">
-
-        <img src="https://picsum.photos/700/900?2">
-
-        <div class="card-content">
-
-          <h3>Magazine Mariage</h3>
-
-          <p>
-            Immortalisez les émotions du plus beau jour de votre vie.
-          </p>
-
-          <button>
-            Créer ce magazine →
-          </button>
-
+        <div class="philosophy-card reveal reveal-delay-2">
+          <div class="philosophy-num">02</div>
+          <h3>Stratifier</h3>
+          <p>Couche par couche, une pièce unique émerge de notre imprimante de haute précision.</p>
         </div>
-
-      </div>
-
-      <div class="card">
-
-        <img src="https://picsum.photos/700/900?3">
-
-        <div class="card-content">
-
-          <h3>Magazine Famille</h3>
-
-          <p>
-            Créez un souvenir intemporel à transmettre aux générations futures.
-          </p>
-
-          <button>
-            Créer ce magazine →
-          </button>
-
+        <div class="philosophy-card reveal reveal-delay-3">
+          <div class="philosophy-num">03</div>
+          <h3>Sublimer</h3>
+          <p>Finitions à la main, patines naturelles, et contrôle qualité méticuleux.</p>
         </div>
-
       </div>
-
     </div>
 
-  </div>
-
-</section>
-
-<!-- PREMIUM -->
-
-<section class="section premium">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <p>Pourquoi StoryMag</p>
-
-      <h2>
-        Une expérience premium de bout en bout.
-      </h2>
-
-    </div>
-
-    <div class="features">
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          ✦
-        </div>
-
-        <h3>
-          100% personnalisé
-        </h3>
-
-        <p>
-          Chaque magazine est entièrement conçu autour de votre histoire.
-        </p>
-
-      </div>
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          ✦
-        </div>
-
-        <h3>
-          Packaging luxe
-        </h3>
-
-        <p>
-          Boîte tiroir premium, papier haut de gamme et finition collector.
-        </p>
-
-      </div>
-
-      <div class="feature">
-
-        <div class="feature-icon">
-          ✦
-        </div>
-
-        <h3>
-          Design éditorial
-        </h3>
-
-        <p>
-          Une direction artistique inspirée des plus grands magazines lifestyle.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- FORM -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <p>Créer</p>
-
-      <h2>
-        Créons votre histoire.
-      </h2>
-
-    </div>
-
-    <div class="form-box">
-
-      <div class="progress">
-        <div class="progress-bar"></div>
-      </div>
-
-      <h3>
-        Vos coordonnées
-      </h3>
-
-      <div class="inputs">
-
-        <input type="text" placeholder="Prénom">
-        <input type="text" placeholder="Nom">
-
-        <input type="email" placeholder="Email">
-        <input type="tel" placeholder="Téléphone">
-
-        <textarea class="full" placeholder="Parlez-nous de cette personne..."></textarea>
-
-        <div class="upload full">
-
-          <div style="font-size:50px;">
-            ⬆
+    <!-- Footer inside home section -->
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">STRATA</div>
+          <p class="footer-tagline">L'art de la matière en couches infinies. Chaque vase STRATA est une sculpture unique, née de la fusion entre technologie de pointe et savoir-faire artisanal.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+            </a>
+            <a href="#" class="social-link" title="Pinterest">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.641 1.267 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.771 0 3.135-1.867 3.135-4.56 0-2.384-1.714-4.052-4.16-4.052-2.833 0-4.495 2.124-4.495 4.32 0 .856.33 1.773.741 2.274a.3.3 0 01.069.285c-.076.313-.244.995-.277 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.522 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
           </div>
-
-          <h4>
-            Glissez vos souvenirs ici
-          </h4>
-
-          <p>
-            Photos, vidéos et messages audio
-          </p>
-
         </div>
-
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="#" onclick="showSection('home');return false;">Accueil</a>
+          <a href="#" onclick="showSection('about');return false;">À Propos</a>
+          <a href="#" onclick="showSection('catalogue');return false;">Collection</a>
+          <a href="#" onclick="showSection('faq');return false;">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#">Commande sur mesure</a>
+          <a href="#">Programme fidélité</a>
+          <a href="#">Livraison offerte dès 89€</a>
+          <a href="#">Retours gratuits</a>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p style="font-size:.78rem;color:var(--text-dim);line-height:1.6;margin-bottom:1rem;">Soyez les premiers informés de nos nouvelles créations.</p>
+          <div class="newsletter-input">
+            <input type="email" placeholder="votre@email.com">
+            <button class="newsletter-btn">OK</button>
+          </div>
+        </div>
       </div>
+      <div class="footer-bottom">
+        <p>© 2025 STRATA. Tous droits réservés. Conçu et fabriqué en France.</p>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">Confidentialité</a>
+          <a href="#">CGV</a>
+        </div>
+      </div>
+    </footer>
+  </section>
 
-      <div class="form-buttons">
+  <!-- ===== ABOUT ===== -->
+  <section id="section-about">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Notre Histoire</span>
+      <h2 class="section-title">La naissance de <em>STRATA</em></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-vase-visual reveal-left">
+        <svg class="about-vase-svg" width="240" height="340" viewBox="0 0 260 360" fill="none">
+          <defs>
+            <linearGradient id="vaseGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#c9a96e"/>
+              <stop offset="50%" stop-color="#8a6c3a"/>
+              <stop offset="100%" stop-color="#3d2f18"/>
+            </linearGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="8" result="cb"/><feMerge><feMergeNode in="cb"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <g filter="url(#glow)">
+            <ellipse cx="130" cy="340" rx="55" ry="12" fill="url(#vaseGrad)" opacity=".3"/>
+            <path d="M75 340 Q60 280 65 220 Q68 180 80 160 Q100 130 110 100 Q120 75 125 40 L135 40 Q140 75 150 100 Q160 130 180 160 Q192 180 195 220 Q200 280 185 340 Z" fill="url(#vaseGrad)" opacity=".9"/>
+            <path d="M78 330 Q130 326 182 330" stroke="#c9a96e" stroke-width=".5" opacity=".3"/>
+            <path d="M76 318 Q130 314 184 318" stroke="#c9a96e" stroke-width=".5" opacity=".3"/>
+            <path d="M75 306 Q130 302 185 306" stroke="#c9a96e" stroke-width=".5" opacity=".3"/>
+            <path d="M74 294 Q130 290 186 294" stroke="#c9a96e" stroke-width=".5" opacity=".3"/>
+            <path d="M72 280 Q130 276 188 280" stroke="#c9a96e" stroke-width=".5" opacity=".4"/>
+            <path d="M70 265 Q130 261 190 265" stroke="#c9a96e" stroke-width=".5" opacity=".4"/>
+            <path d="M68 248 Q130 244 192 248" stroke="#c9a96e" stroke-width=".5" opacity=".4"/>
+            <path d="M67 230 Q130 226 193 230" stroke="#c9a96e" stroke-width=".5" opacity=".5"/>
+            <path d="M67 210 Q130 206 193 210" stroke="#c9a96e" stroke-width=".5" opacity=".5"/>
+            <path d="M69 190 Q130 186 191 190" stroke="#c9a96e" stroke-width=".5" opacity=".6"/>
+            <path d="M73 170 Q130 166 187 170" stroke="#c9a96e" stroke-width=".5" opacity=".6"/>
+            <path d="M80 152 Q130 148 180 152" stroke="#c9a96e" stroke-width=".5" opacity=".7"/>
+            <path d="M100 200 Q105 120 115 60" stroke="rgba(255,255,220,0.12)" stroke-width="8" stroke-linecap="round"/>
+          </g>
+          <ellipse cx="130" cy="40" rx="18" ry="6" fill="#c9a96e" opacity=".8"/>
+        </svg>
+      </div>
+      <div class="about-text reveal-right">
+        <h3>Né d'une <em>obsession</em> pour la beauté des couches</h3>
+        <p>En 2020, dans un atelier parisien baigné de lumière du Nord, Mia Vernet et Théo Kessler posent la première couche de ce qui deviendra STRATA. Ancienne sculptrice et ingénieur matériaux, ils partagent une même conviction : la technologie d'impression 3D mérite de sublimer, et non de standardiser.</p>
+        <p>Chaque vase STRATA naît d'un processus unique : un modèle 3D conçu à la main, imprimé en PLA biosourcé ou en résine technique, puis poncé, patiné et fini par nos artisans. Jamais deux pièces identiques — c'est notre promesse.</p>
+        <p>Aujourd'hui, notre atelier expédie dans 32 pays, et chaque commande reste une pièce à part entière.</p>
+        <div class="about-quote">
+          <p>"L'impression 3D nous offre une liberté de forme inédite. Nous n'en exploitons qu'une infime partie — et c'est ce qui nous excite chaque matin."</p>
+          <cite>— Mia Vernet, Co-fondatrice</cite>
+        </div>
+      </div>
+    </div>
 
-        <button class="btn-secondary">
-          Retour
+    <div class="about-process reveal">
+      <h3 class="process-title">Notre Processus d'Impression</h3>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <h4>Design 3D</h4><p>Modélisation paramétrique & révisions humaines</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h4>Slicing</h4><p>Découpe numérique en couches de 0.1 mm</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h4>Impression</h4><p>Dépôt couche par couche, 6 à 18h par pièce</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+          <h4>Finition</h4><p>Ponçage, patine & contrôle qualité artisanal</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-item reveal reveal-delay-1"><div class="stat-number" data-target="100">0</div><div class="stat-label">% Fait en France</div></div>
+      <div class="stat-item reveal reveal-delay-2"><div class="stat-number" data-target="5">0</div><div class="stat-label">Jours de livraison</div></div>
+      <div class="stat-item reveal reveal-delay-3"><div class="stat-number" data-target="32">0</div><div class="stat-label">Pays expédiés</div></div>
+      <div class="stat-item reveal reveal-delay-4"><div class="stat-number" data-target="2400">0</div><div class="stat-label">Pièces créées</div></div>
+    </div>
+  </section>
+
+  <!-- ===== CATALOGUE ===== -->
+  <section id="section-catalogue">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Notre Collection</span>
+      <h2 class="section-title">Chaque <em>forme</em> raconte une histoire</h2>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProducts(this,'all')">Tous</button>
+      <button class="filter-btn" onclick="filterProducts(this,'pla')">PLA Biosourcé</button>
+      <button class="filter-btn" onclick="filterProducts(this,'resine')">Résine</button>
+      <button class="filter-btn" onclick="filterProducts(this,'edition')">Édition Limitée</button>
+    </div>
+    <div class="products-grid" id="products-grid"></div>
+  </section>
+
+  <!-- ===== CHECKOUT ===== -->
+  <section id="section-checkout">
+    <div class="section-header reveal" style="margin-bottom:3rem;">
+      <span class="section-eyebrow">Finaliser ma commande</span>
+      <h2 class="section-title">Paiement <em>sécurisé</em></h2>
+    </div>
+    <div class="checkout-grid">
+      <div class="checkout-form-section">
+        <h3>Informations personnelles</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Prénom</label><input type="text" placeholder="Marie"></div>
+          <div class="form-group"><label>Nom</label><input type="text" placeholder="Dupont"></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="marie@email.com"></div>
+        <div class="form-group"><label>Adresse</label><input type="text" placeholder="12 rue des Lilas"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Ville</label><input type="text" placeholder="Paris"></div>
+          <div class="form-group"><label>Code postal</label><input type="text" placeholder="75001"></div>
+        </div>
+        <div class="form-group">
+          <label>Pays</label>
+          <select>
+            <option>France</option><option>Belgique</option><option>Suisse</option><option>Luxembourg</option><option>Canada</option>
+          </select>
+        </div>
+        <h3 style="margin-top:2rem;">Carte bancaire</h3>
+        <div class="card-input-wrapper">
+          <div class="card-chips"><span class="card-chip">VISA</span><span class="card-chip">Mastercard</span><span class="card-chip">Amex</span></div>
+          <div class="card-number-display" id="card-display">•••• •••• •••• ••••</div>
+          <div class="form-group" style="margin-bottom:.8rem;"><label>Numéro de carte</label><input type="text" placeholder="4242 4242 4242 4242" maxlength="19" oninput="formatCard(this)"></div>
+          <div class="form-row">
+            <div class="form-group"><label>Expiration</label><input type="text" placeholder="MM / AA" maxlength="7" oninput="formatExp(this)"></div>
+            <div class="form-group"><label>CVV</label><input type="text" placeholder="•••" maxlength="3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="checkout-summary">
+        <h3>Résumé</h3>
+        <div id="checkout-items"></div>
+        <div class="summary-item" style="margin-top:1rem;"><span>Sous-total</span><span id="summary-subtotal">0,00 €</span></div>
+        <div class="summary-item"><span>Livraison</span><span style="color:#78c878;">Offerte</span></div>
+        <div class="summary-item total"><span>Total</span><span class="summary-price" id="summary-total">0,00 €</span></div>
+        <button class="btn-pay" id="pay-btn" onclick="processPayment()">
+          <div class="pay-loader"></div>
+          <span class="pay-text">Confirmer le paiement</span>
         </button>
-
-        <button class="btn-primary">
-          Continuer
-        </button>
-
+        <p style="font-size:.65rem;color:var(--text-dim);text-align:center;margin-top:1rem;line-height:1.6;">🔒 Paiement 100% sécurisé — SSL 256 bits</p>
       </div>
-
     </div>
+  </section>
 
-  </div>
-
-</section>
-
-<!-- PACKAGING -->
-
-<section class="section white">
-
-  <div class="container">
-
-    <div class="packaging-grid">
-
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200">
-
-      <div>
-
-        <p style="color:var(--gold);text-transform:uppercase;letter-spacing:4px;font-size:12px;">
-          Packaging Premium
-        </p>
-
-        <h2>
-          Un objet collector pensé comme une œuvre.
-        </h2>
-
-        <p>
-          Boîte tiroir luxe, papier premium, finitions élégantes,
-          expérience d’ouverture émotionnelle et qualité éditoriale exceptionnelle.
-        </p>
-
+  <!-- ===== PROFILE ===== -->
+  <section id="section-profile">
+    <div class="section-header reveal" style="margin-bottom:3rem;">
+      <span class="section-eyebrow">Espace Personnel</span>
+      <h2 class="section-title">Mon <em>Compte</em></h2>
+    </div>
+    <div class="profile-grid">
+      <div class="profile-sidebar">
+        <div class="profile-avatar">M</div>
+        <div class="profile-name">Marie Fontaine</div>
+        <div class="profile-email">marie.fontaine@email.com</div>
+        <div class="profile-tabs">
+          <button class="profile-tab active" onclick="switchTab(this,'tab-info')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            Mes Infos
+          </button>
+          <button class="profile-tab" onclick="switchTab(this,'tab-orders')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+            Commandes
+          </button>
+          <button class="profile-tab" onclick="switchTab(this,'tab-tracking')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Suivi
+          </button>
+        </div>
       </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- TESTIMONIALS -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <p>Témoignages</p>
-
-      <h2>
-        Des émotions réelles.
-      </h2>
-
-    </div>
-
-    <div class="testimonials">
-
-      <div class="testimonial">
-
-        <p>
-          “Le plus beau cadeau d’anniversaire que nous ayons offert.”
-        </p>
-
-        <span>
-          Client StoryMag
-        </span>
-
+      <div class="profile-content">
+        <div id="tab-info" class="active">
+          <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:300;color:var(--cream);margin-bottom:1.5rem;">Mes informations</h3>
+          <div class="info-form">
+            <div class="form-row">
+              <div class="form-group"><label>Prénom</label><input type="text" value="Marie"></div>
+              <div class="form-group"><label>Nom</label><input type="text" value="Fontaine"></div>
+            </div>
+            <div class="form-group"><label>Email</label><input type="email" value="marie.fontaine@email.com"></div>
+            <div class="form-group"><label>Téléphone</label><input type="tel" value="+33 6 12 34 56 78"></div>
+            <div class="form-group"><label>Adresse</label><input type="text" value="24 avenue Montaigne, 75008 Paris"></div>
+            <button class="btn-outline" style="margin-top:1rem;">Enregistrer</button>
+          </div>
+        </div>
+        <div id="tab-orders">
+          <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:300;color:var(--cream);margin-bottom:1.5rem;">Mes commandes</h3>
+          <div class="orders-list">
+            <div class="order-card">
+              <div><div class="order-ref">#STR-20251104</div><div class="order-name">Vase Nébuleuse + Vase Éclipse</div><div class="order-date">4 novembre 2025</div></div>
+              <div style="text-align:right;"><div class="order-status status-delivered">Livré</div><div class="order-total">198,00 €</div></div>
+            </div>
+            <div class="order-card">
+              <div><div class="order-ref">#STR-20251028</div><div class="order-name">Vase Solstice</div><div class="order-date">28 octobre 2025</div></div>
+              <div style="text-align:right;"><div class="order-status status-delivered">Livré</div><div class="order-total">89,00 €</div></div>
+            </div>
+            <div class="order-card">
+              <div><div class="order-ref">#STR-20251201</div><div class="order-name">Vase Zénith Doré</div><div class="order-date">1er décembre 2025</div></div>
+              <div style="text-align:right;"><div class="order-status status-shipped">Expédié</div><div class="order-total">149,00 €</div></div>
+            </div>
+          </div>
+        </div>
+        <div id="tab-tracking">
+          <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:300;color:var(--cream);margin-bottom:1.5rem;">Suivi de commande</h3>
+          <div class="tracking-header">
+            <div><div class="order-ref">#STR-20251201</div><div class="tracking-ref">Vase Zénith Doré</div></div>
+            <div class="order-status status-shipped">Expédié</div>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item"><div class="timeline-dot done"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div class="timeline-title">Commande confirmée</div><div class="timeline-date">1 déc. 2025 — 10:32</div><div class="timeline-desc">Votre paiement a été validé.</div></div>
+            <div class="timeline-item"><div class="timeline-dot done"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div class="timeline-title">En cours de fabrication</div><div class="timeline-date">1 déc. 2025 — 14:00</div><div class="timeline-desc">Votre vase est en cours d'impression dans notre atelier.</div></div>
+            <div class="timeline-item"><div class="timeline-dot done"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><div class="timeline-title">Finitions & contrôle qualité</div><div class="timeline-date">3 déc. 2025 — 09:15</div><div class="timeline-desc">Ponçage, patine et emballage soigneux effectués.</div></div>
+            <div class="timeline-item"><div class="timeline-dot active"></div><div class="timeline-title">Expédié — En transit</div><div class="timeline-date">4 déc. 2025 — 11:00</div><div class="timeline-desc">N° de suivi : 6A1234567890FR</div></div>
+            <div class="timeline-item" style="opacity:.4;"><div class="timeline-dot"></div><div class="timeline-title">Livraison prévue</div><div class="timeline-date">6 déc. 2025</div><div class="timeline-desc">Livraison estimée entre 8h et 13h.</div></div>
+          </div>
+        </div>
       </div>
-
-      <div class="testimonial">
-
-        <p>
-          “Une émotion incroyable en découvrant le magazine.”
-        </p>
-
-        <span>
-          Client StoryMag
-        </span>
-
-      </div>
-
-      <div class="testimonial">
-
-        <p>
-          “Un rendu digne d’un vrai magazine de luxe.”
-        </p>
-
-        <span>
-          Client StoryMag
-        </span>
-
-      </div>
-
     </div>
+  </section>
 
+  <!-- ===== FAQ ===== -->
+  <section id="section-faq">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Questions Fréquentes</span>
+      <h2 class="section-title">Tout savoir sur <em>STRATA</em></h2>
+    </div>
+    <div class="faq-list" id="faq-list"></div>
+  </section>
+
+</div><!-- end main-wrapper -->
+
+<!-- CART SIDEBAR -->
+<div id="cart-overlay" onclick="toggleCart()"></div>
+<div id="cart-sidebar">
+  <div class="cart-header">
+    <h2>Mon Panier</h2>
+    <button class="cart-close" onclick="toggleCart()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
   </div>
-
-</section>
-
-<!-- FAQ -->
-
-<section class="section faq">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <p>FAQ</p>
-
-      <h2>
-        Questions fréquentes
-      </h2>
-
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span class="cart-total-price" id="cart-total">0,00 €</span>
     </div>
-
-    <div class="faq-item">
-
-      <h3>
-        Quels sont les délais ?
-      </h3>
-
-      <p>
-        Les créations prennent généralement entre 7 et 14 jours.
-      </p>
-
-    </div>
-
-    <div class="faq-item">
-
-      <h3>
-        Puis-je modifier avant impression ?
-      </h3>
-
-      <p>
-        Oui, une validation finale est toujours envoyée avant impression.
-      </p>
-
-    </div>
-
-    <div class="faq-item">
-
-      <h3>
-        Mes données sont-elles sécurisées ?
-      </h3>
-
-      <p>
-        Toutes vos données et fichiers sont stockés de manière sécurisée.
-      </p>
-
-    </div>
-
+    <button class="btn-checkout" onclick="goToCheckout()"><span>Passer la commande →</span></button>
   </div>
+</div>
 
-</section>
-
-<!-- FOOTER -->
-
-<footer class="footer">
-
-  <div class="footer-grid">
-
-    <div>
-
-      <h3>
-        StoryMag
-      </h3>
-
-      <p>
-        Transformez vos souvenirs en magazine d’exception.
-      </p>
-
-    </div>
-
-    <div>
-
-      <ul>
-        <li>Concept</li>
-        <li>Magazines</li>
-        <li>FAQ</li>
-      </ul>
-
-    </div>
-
-    <div>
-
-      <ul>
-        <li>Instagram</li>
-        <li>TikTok</li>
-        <li>contact@storymag.fr</li>
-      </ul>
-
-    </div>
-
-    <div>
-
-      <ul>
-        <li>Mentions légales</li>
-        <li>RGPD</li>
-        <li>CGV</li>
-      </ul>
-
-    </div>
-
+<!-- CONFIRM -->
+<div class="confirm-overlay" id="confirm-overlay">
+  <div class="confirm-icon">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
+      <polyline points="20 6 9 17 4 12" stroke-dasharray="30" stroke-dashoffset="30" style="animation:drawCheck .5s .3s forwards ease;"/>
+    </svg>
   </div>
-
-</footer>
+  <h2 class="confirm-title">Commande confirmée !</h2>
+  <p class="confirm-sub">Un email de confirmation vous a été envoyé.<br>Votre vase sera imprimé sous 24h.</p>
+  <button class="btn-outline" onclick="closeConfirm()">Suivre ma commande</button>
+</div>
 
 <script>
+// ===== CURSOR =====
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+});
+(function animRing() {
+  rx += (mx - rx) * .12; ry += (my - ry) * .12;
+  cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
 
-/* =========================
-ANIMATION SCROLL
-========================= */
+// ===== MOBILE MENU =====
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+  const isOpen = document.getElementById('mobile-menu').classList.contains('open');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-const observer = new IntersectionObserver(entries => {
+// ===== INTRO =====
+const introCanvas = document.getElementById('intro-canvas');
+const ictx = introCanvas.getContext('2d');
+function resizeIntro() { introCanvas.width = window.innerWidth; introCanvas.height = window.innerHeight; }
+resizeIntro();
+let introLayers = 0;
+const totalLayers = 50;
 
-  entries.forEach(entry => {
-
-    if(entry.isIntersecting){
-
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = "translateY(0px)";
-
+function drawIntroVase() {
+  ictx.clearRect(0, 0, introCanvas.width, introCanvas.height);
+  const cx = introCanvas.width / 2, cy = introCanvas.height / 2;
+  const vaseH = Math.min(280, introCanvas.height * 0.5);
+  const startY = cy + vaseH / 2;
+  const layersDone = Math.min(introLayers, totalLayers);
+  const scale = introCanvas.width < 400 ? 0.6 : 1;
+  for (let i = 0; i < layersDone; i++) {
+    const t = i / totalLayers;
+    const y = startY - (i * vaseH / totalLayers);
+    let r;
+    if (t < 0.05) r = 12 + t * 100;
+    else if (t < 0.15) r = 12 + 5 - (t - 0.05) * 20;
+    else if (t < 0.45) r = 9 + (t - 0.15) * 180;
+    else if (t < 0.6) r = 63 - (t - 0.45) * 120;
+    else if (t < 0.75) r = 45 + (t - 0.6) * 40;
+    else r = 51 - (t - 0.75) * 60;
+    r = Math.max(r, 8) * scale;
+    const alpha = 0.5 + t * 0.5;
+    ictx.beginPath();
+    ictx.moveTo(cx - r, y); ictx.lineTo(cx + r, y);
+    ictx.strokeStyle = `rgba(${Math.floor(150 + t * 80)},${Math.floor(100 + t * 70)},${Math.floor(40 + t * 30)},${alpha})`;
+    ictx.lineWidth = vaseH / totalLayers + 0.5;
+    ictx.stroke();
+    if (i === layersDone - 1) {
+      ictx.shadowBlur = 20; ictx.shadowColor = '#c9a96e';
+      ictx.beginPath(); ictx.moveTo(cx - r, y); ictx.lineTo(cx + r, y);
+      ictx.strokeStyle = 'rgba(201,169,110,0.8)'; ictx.lineWidth = 2; ictx.stroke();
+      ictx.shadowBlur = 0;
     }
+  }
+}
 
+let layerInterval = setInterval(() => {
+  introLayers++;
+  drawIntroVase();
+  if (introLayers >= totalLayers) { clearInterval(layerInterval); setTimeout(showBrandName, 200); }
+}, 40);
+
+function showBrandName() {
+  const letters = 'STRATA'.split('');
+  const container = document.getElementById('intro-letters');
+  letters.forEach((l, i) => {
+    const span = document.createElement('span');
+    span.textContent = l;
+    container.appendChild(span);
+    setTimeout(() => { span.style.opacity = '1'; span.style.transform = 'translateY(0)'; }, i * 110);
   });
+  setTimeout(() => {
+    document.getElementById('intro-line').style.width = '160px';
+    document.getElementById('intro-tagline').style.opacity = '1';
+  }, 800);
+  setTimeout(hideIntro, 1700);
+}
 
-},{
-  threshold:0.1
+function hideIntro() {
+  document.getElementById('intro').classList.add('fade-out');
+  setTimeout(() => {
+    document.getElementById('intro').style.display = 'none';
+    document.getElementById('main-wrapper').classList.add('visible');
+    startHeroCanvas();
+    startTypewriter();
+    initScrollReveal();
+  }, 800);
+}
+
+// ===== HERO CANVAS =====
+function startHeroCanvas() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+  resize();
+  window.addEventListener('resize', resize);
+  const isMob = () => window.innerWidth <= 768;
+  const count = isMob() ? 40 : 80;
+  const pts = Array.from({length: count}, () => ({
+    x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+    vx: (Math.random() - .5) * .4, vy: (Math.random() - .5) * .4,
+    r: Math.random() * 1.5 + .3
+  }));
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const gs = isMob() ? 60 : 80;
+    ctx.strokeStyle = 'rgba(201,169,110,0.04)'; ctx.lineWidth = 1;
+    for (let x = 0; x < canvas.width; x += gs) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,canvas.height); ctx.stroke(); }
+    for (let y = 0; y < canvas.height; y += gs) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(canvas.width,y); ctx.stroke(); }
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(201,169,110,0.4)'; ctx.fill();
+    });
+    const ld = isMob() ? 80 : 120;
+    pts.forEach((p, i) => {
+      pts.slice(i+1).forEach(q => {
+        const d = Math.hypot(p.x-q.x, p.y-q.y);
+        if (d < ld) { ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.strokeStyle = `rgba(201,169,110,${.15*(1-d/ld)})`; ctx.lineWidth = .5; ctx.stroke(); }
+      });
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ===== TYPEWRITER =====
+function startTypewriter() {
+  const texts = ['Vases imprimés couche par couche, finis à la main.','Chaque pièce est unique, signée de notre atelier.','L\'impression 3D réinvente l\'art décoratif.'];
+  let ti = 0, ci = 0, del = false;
+  const el = document.getElementById('typewriter-text');
+  if (!el) return;
+  function type() {
+    if (!del) { el.textContent = texts[ti].slice(0, ci++); if (ci > texts[ti].length) { del = true; setTimeout(type, 1800); return; } }
+    else { el.textContent = texts[ti].slice(0, ci--); if (ci < 0) { del = false; ti = (ti+1) % texts.length; ci = 0; } }
+    setTimeout(type, del ? 28 : 52);
+  }
+  type();
+}
+
+// ===== NAV SCROLL =====
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
 
-document.querySelectorAll('.card,.feature,.testimonial').forEach(el=>{
+// ===== SECTION NAV =====
+const sections = ['home','about','catalogue','checkout','profile','faq'];
+function showSection(name) {
+  sections.forEach(s => {
+    const el = document.getElementById('section-' + s);
+    if (el) el.classList.remove('active');
+  });
+  const target = document.getElementById('section-' + name);
+  if (target) {
+    target.classList.add('active');
+    target.classList.remove('page-enter');
+    void target.offsetWidth;
+    target.classList.add('page-enter');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    initScrollReveal();
+  }
+  if (name === 'checkout') updateCheckoutSummary();
+}
 
-  el.style.opacity = 0;
-  el.style.transform = "translateY(60px)";
-  el.style.transition = "1s";
+// ===== SCROLL REVEAL =====
+function initScrollReveal() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal:not(.visible), .reveal-left:not(.visible), .reveal-right:not(.visible)').forEach(el => observer.observe(el));
+  document.querySelectorAll('[data-target]').forEach(el => {
+    new IntersectionObserver(([entry]) => { if (entry.isIntersecting) animateCounter(el); }, {threshold: 0.5}).observe(el);
+  });
+}
 
-  observer.observe(el);
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const start = performance.now();
+  function step(now) {
+    const t = Math.min((now - start) / 1800, 1);
+    const ease = 1 - Math.pow(1-t, 3);
+    el.textContent = Math.round(ease * target).toLocaleString('fr-FR');
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
 
-});
+// ===== PRODUCTS =====
+const products = [
+  { id:1, name:'Nébuleuse', badge:'new', desc:'PLA biosourcé mat, surface texturée évoquant la vapeur cosmique. H 28cm, Ø 12cm.', price:79, category:'pla', img:'https://cdn.phototourl.com/member/2026-05-12-72b95db1-a596-4ff0-b5c6-f1fc52cff07b.jpg'},
+  { id:2, name:'Éclipse', badge:'best', desc:'Résine translucide dorée, double paroi avec reflets intérieurs. H 32cm, Ø 10cm.', price:129, category:'resine', img:'https://cdn.phototourl.com/member/2026-05-12-926d98b8-784d-4173-9830-437736c5c0c6.jpg' },
+  { id:3, name:'Solstice', badge:'limited', desc:'PLA blanc nacré, formes géométriques hélicoïdales. H 22cm, Ø 14cm.', price:89, category:'edition', img:'https://cdn.phototourl.com/member/2026-05-12-45ca5368-484f-40e3-a306-6aee0a16593f.jpg' },
+  { id:4, name:'Zénith Doré', badge:'limited', desc:'Résine premium finition or brossé, cannelures verticales. H 35cm. Édition 50 ex.', price:149, category:'edition', img:'' },
+  { id:5, name:'Marée Basse', badge:null, desc:'PLA bleu-vert océan, texture vague. H 25cm, Ø 15cm. Idéal pour floraux.', price:69, category:'pla', img:'' },
+  { id:6, name:'Obsidienne', badge:'best', desc:'PLA noir mat ultra-dense, formes concaves sculpturales. H 30cm, Ø 13cm.', price:99, category:'pla', img:'' },
+  { id:7, name:'Terracotta Rift', badge:'new', desc:'Résine couleur terre cuite naturelle, fissures décoratives. H 26cm, Ø 18cm.', price:85, category:'resine', img:'' },
+  { id:8, name:'Celadon', badge:null, desc:'PLA vert céladon satiné, inspiration poterie Song. H 20cm, Ø 10cm.', price:59, category:'pla', img:'' },
+  { id:9, name:'Cendres Blanches', badge:'new', desc:'Résine blanche givrée effet porcelaine biscuit. H 24cm, Ø 16cm.', price:95, category:'resine', img:'' },
+  { id:10, name:'Aurore Boréale', badge:'limited', desc:'Résine photochromique — change de couleur selon la lumière. H 29cm, Ø 12cm.', price:139, category:'edition', img:'' }
+];
 
+function buildProductCard(p) {
+  const badgeMap = { new:['badge-new','Nouveau'], best:['badge-best','Bestseller'], limited:['badge-limited','Éd. Limitée'] };
+  const b = p.badge ? badgeMap[p.badge] : null;
+  const hasImg = p.img && p.img.trim() !== '';
+  return `<div class="product-card reveal" data-cat="${p.category}">
+    ${b ? `<span class="product-badge ${b[0]}">${b[1]}</span>` : ''}
+    <div class="product-img-zone">
+      ${hasImg ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : ''}
+      ${!hasImg ? `<div class="img-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Ajouter une image</span>
+      </div>` : ''}
+    </div>
+    <div class="product-info">
+      <div class="product-name">${p.name}</div>
+      <div class="product-desc">${p.desc}</div>
+      <div class="product-meta">
+        <div class="product-price">${p.price},00 €</div>
+        <button class="btn-add" onclick="addToCart(${p.id}, event)"><span>+ Panier</span></button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderProducts(filter = 'all') {
+  document.getElementById('products-grid').innerHTML = products
+    .filter(p => filter === 'all' || p.category === filter)
+    .map(buildProductCard).join('');
+  initScrollReveal();
+}
+renderProducts();
+
+function filterProducts(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(cat);
+}
+
+// ===== CART =====
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem('strata_cart') || '[]'); } catch(e) { cart = []; }
+function saveCart() { try { localStorage.setItem('strata_cart', JSON.stringify(cart)); } catch(e){} }
+
+function addToCart(id, event) {
+  const product = products.find(p => p.id === id);
+  const existing = cart.find(i => i.id === id);
+  if (existing) existing.qty++;
+  else cart.push({ id, name: product.name, price: product.price, qty: 1, img: product.img });
+  saveCart(); updateCartUI();
+  const btn = event.target.closest('button');
+  if (btn) { const sp = btn.querySelector('span'); sp.textContent = '✓'; setTimeout(() => { sp.textContent = '+ Panier'; }, 1200); }
+}
+
+function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); updateCartUI(); }
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) removeFromCart(id);
+  else { saveCart(); updateCartUI(); }
+}
+
+function updateCartUI() {
+  const total = cart.reduce((s, i) => s + i.qty, 0);
+  const count = document.getElementById('cart-count');
+  count.textContent = total;
+  count.classList.toggle('visible', total > 0);
+  const totalPrice = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  document.getElementById('cart-total').textContent = totalPrice.toFixed(2).replace('.', ',') + ' €';
+  renderCartItems();
+}
+
+function renderCartItems() {
+  const container = document.getElementById('cart-items');
+  if (!cart.length) {
+    container.innerHTML = `<div class="cart-empty">
+      <div class="cart-empty-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+      <h3>Panier vide</h3>
+      <p style="font-size:.82rem;color:var(--text-dim);">Ajoutez des vases à votre panier</p>
+    </div>`;
+    return;
+  }
+  container.innerHTML = cart.map(item => {
+    const hasImg = item.img && item.img.trim() !== '';
+    return `<div class="cart-item">
+      <div class="cart-item-thumb">
+        ${hasImg ? `<img src="${item.img}" alt="${item.name}">` : `<div class="thumb-placeholder"><svg width="20" height="32" viewBox="0 0 20 36" fill="none"><path d="M4 34 Q2 26 3 18 Q5 10 8 6 Q10 2 10 2 Q10 2 12 6 Q15 10 17 18 Q18 26 16 34 Z" fill="rgba(201,169,110,0.2)" stroke="rgba(201,169,110,0.4)" stroke-width=".5"/></svg></div>`}
+      </div>
+      <div>
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">${item.price},00 €</div>
+        <div class="cart-qty">
+          <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
+          <span class="qty-val">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+        </div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart(${item.id})">Retirer</button>
+    </div>`;
+  }).join('');
+}
+
+function toggleCart() {
+  document.getElementById('cart-sidebar').classList.toggle('open');
+  document.getElementById('cart-overlay').classList.toggle('active');
+  document.body.style.overflow = document.getElementById('cart-sidebar').classList.contains('open') ? 'hidden' : '';
+  renderCartItems();
+}
+
+function goToCheckout() { toggleCart(); showSection('checkout'); }
+updateCartUI();
+
+// ===== CHECKOUT =====
+function updateCheckoutSummary() {
+  const items = document.getElementById('checkout-items');
+  const subtotal = cart.reduce((s,i) => s + i.price*i.qty, 0);
+  items.innerHTML = cart.map(i => `<div class="summary-item"><span>${i.name} ×${i.qty}</span><span>${(i.price*i.qty).toFixed(2).replace('.',',')} €</span></div>`).join('') || '<p style="font-size:.82rem;color:var(--text-dim);">Aucun article</p>';
+  document.getElementById('summary-subtotal').textContent = subtotal.toFixed(2).replace('.',',') + ' €';
+  document.getElementById('summary-total').textContent = subtotal.toFixed(2).replace('.',',') + ' €';
+}
+
+function formatCard(input) {
+  let v = input.value.replace(/\D/g,'').slice(0,16);
+  input.value = v.replace(/(.{4})/g,'$1 ').trim();
+  const d = document.getElementById('card-display');
+  if (d) d.textContent = v.padEnd(16,'•').replace(/(.{4})/g,'$1 ').trim();
+}
+function formatExp(input) {
+  let v = input.value.replace(/\D/g,'').slice(0,4);
+  if (v.length >= 2) v = v.slice(0,2) + ' / ' + v.slice(2);
+  input.value = v;
+}
+
+function processPayment() {
+  const btn = document.getElementById('pay-btn');
+  btn.classList.add('loading');
+  setTimeout(() => {
+    btn.classList.remove('loading');
+    cart = []; saveCart(); updateCartUI();
+    document.getElementById('confirm-overlay').classList.add('active');
+  }, 2500);
+}
+
+function closeConfirm() {
+  document.getElementById('confirm-overlay').classList.remove('active');
+  showSection('profile');
+  setTimeout(() => {
+    document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('#section-profile .profile-content > div').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.profile-tab')[2].classList.add('active');
+    document.getElementById('tab-tracking').classList.add('active');
+  }, 100);
+}
+
+// ===== PROFILE TABS =====
+function switchTab(btn, tabId) {
+  document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('#section-profile .profile-content > div').forEach(d => d.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+
+// ===== FAQ =====
+const faqs = [
+  { q:'Quels matériaux utilisez-vous pour imprimer vos vases ?', a:'Nous utilisons principalement du PLA biosourcé (acide polylactique d\'origine végétale) pour nos pièces mats et texturées, et de la résine photopolymère de haute précision pour nos créations translucides et détaillées. Tous nos matériaux sont non toxiques et respectueux de l\'environnement.' },
+  { q:'Puis-je mettre de l\'eau dans mes vases STRATA ?', a:'La grande majorité de nos vases en résine sont imperméables et peuvent contenir de l\'eau directement. Nos vases en PLA nécessitent un vase intérieur en verre ou plastique. Chaque fiche produit précise cette information.' },
+  { q:'Combien de temps dure l\'impression d\'un vase ?', a:'Selon la complexité et la taille, l\'impression prend entre 6 et 18 heures. À cela s\'ajoutent les étapes de finition : ponçage, patine, contrôle qualité et emballage. Comptez 2 à 3 jours ouvrés de fabrication.' },
+  { q:'Quels sont vos délais et options de livraison ?', a:'Nous expédions sous 2-3 jours ouvrés. La livraison standard en France métropolitaine prend 1 à 2 jours supplémentaires (Colissimo suivi). Livraison offerte dès 89€ d\'achat. Nous livrons dans 32 pays.' },
+  { q:'Proposez-vous des créations sur mesure ?', a:'Absolument ! Chaque vase peut être personnalisé : dimensions, couleur, texture, inscription. Nous proposons aussi un service de création 3D sur mesure à partir de vos inspirations.' },
+  { q:'Quelle est votre politique de retour ?', a:'Nous offrons 14 jours de droit de retour à compter de la réception. Les frais de retour sont à notre charge pour tout article défectueux. Les pièces sur mesure ne sont pas éligibles au retour sauf défaut de fabrication.' },
+  { q:'Comment entretenir mon vase STRATA ?', a:'Un chiffon légèrement humide suffit pour la poussière quotidienne. Évitez les produits abrasifs et les nettoyants chimiques. Nos pièces ne passent pas au lave-vaisselle.' },
+  { q:'Vos vases sont-ils des séries uniques ?', a:'Nous produisons des modèles de collection (20 à 100 exemplaires numérotés) et des pièces sur mesure (uniques). Même les pièces "de série" présentent de légères variations — c\'est la signature de l\'impression 3D artisanale.' }
+];
+
+document.getElementById('faq-list').innerHTML = faqs.map(f => `
+  <div class="faq-item reveal" onclick="toggleFaq(this)">
+    <button class="faq-question">
+      <span>${f.q}</span>
+      <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">${f.a}</div></div>
+  </div>`).join('');
+
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-answer').style.maxHeight = '0'; });
+  if (!isOpen) { item.classList.add('open'); item.querySelector('.faq-answer').style.maxHeight = item.querySelector('.faq-answer-inner').scrollHeight + 'px'; }
+}
+
+// ===== RESIZE =====
+window.addEventListener('resize', resizeIntro);
 </script>
-
 </body>
 </html>
